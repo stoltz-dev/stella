@@ -85,3 +85,16 @@ function getCookie(name) {
 function setCookie(name, value) {
   document.cookie = name + "=" + value + "; path=/";
 }
+
+const input = document.querySelector("#input");
+
+input.addEventListener("focus", () => {
+  input.style.transition = "width 0.5s";
+  input.style.width = "300px";
+});
+
+input.addEventListener("input", () => {
+  const width = Math.min(input.value.length * 10 + 240, 500);
+  input.style.width = `${width}px`;
+});
+
