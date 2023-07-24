@@ -1,2 +1,2 @@
-# stella
-Stella
+# aurora
+nothing (yet)

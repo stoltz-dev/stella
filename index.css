@@ -1,0 +1,121 @@
+body {
+    font-family: sans-serif;
+    font-family: "Exo", sans-serif;
+    background: #070815;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+.background {
+	background: linear-gradient(90deg, #0c0913 20.6px, transparent 1%) center, linear-gradient(#0c0913 21.6px, transparent 1%) center, #a799cc;
+	background-size: 22px 22px;
+    background-position: -19px -19px, 0 0;
+    animation: breath 20s ease-in-out infinite;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.chat-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#chat-messages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+#input {
+    margin-right: 10px;
+    border: 2px solid rgb(242, 242, 242);
+    caret-color: rgb(242, 242, 242);
+    color: rgb(242, 242, 242);
+    -webkit-animation: inputVisibilityB .8s infinite alternate;
+    animation: inputVisibilityB .8s infinite alternate;
+    background: transparent;
+    bottom: 32px;
+    font-weight: 320;
+    height: 32px;
+    outline: none;
+    padding: 0 8px;
+    position: absolute;
+    transition: border-color .1s,color .1s,text-shadow .1s,-webkit-transform .3s;
+    transition: border-color .1s,color .1s,text-shadow .1s,transform .3s;
+    transition: border-color .1s,color .1s,text-shadow .1s,transform .3s,-webkit-transform .3s;
+    width: 240px;
+}
+
+
+.message {
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+    transition: opacity 0.25s ease-in-out;
+    margin-inline: 10%;
+    position: absolute;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  
+ to {
+    opacity: 1;
+ }
+}
+
+@keyframes breath {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+        /* Código CSS existente omitido por simplicidade */
+
+        /* Estilos para o botão de voltar */
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            padding: 10px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .back-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+            fill: white;
+        }
