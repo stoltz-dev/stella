@@ -67,55 +67,38 @@ a {
     width: 240px;
 }
 
+/* New styles for the button */
+#submit {
+    margin-left: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
 
-.message {
+/* New styles for the loading container */
+.loading-container {
     display: none;
-    animation: fadeIn 0.5s ease-in-out;
-    transition: opacity 0.25s ease-in-out;
-    margin-inline: 10%;
     position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  
- to {
-    opacity: 1;
- }
+.loader {
+    font-size: 24px;
+    animation: spin 1s linear infinite;
 }
 
-@keyframes breath {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-  }
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
-        /* Código CSS existente omitido por simplicidade */
-
-        /* Estilos para o botão de voltar */
-        .back-button {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            padding: 10px;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-        }
-
-        .back-icon {
-            width: 20px;
-            height: 20px;
-            margin-right: 5px;
-            fill: white;
-        }
+/* The rest of the existing CSS remains the same */
