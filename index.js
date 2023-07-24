@@ -111,7 +111,14 @@ input.addEventListener("focus", () => {
     input.style.width = "300px";
 });
 
+// Event listener para detectar quando o input perde o foco
+input.addEventListener("blur", () => {
+    input.style.transition = "width 0.5s";
+    input.style.width = "240px"; // Voltar ao tamanho original
+});
+
 input.addEventListener("input", () => {
     const width = Math.min(input.value.length * 10 + 240, 500);
     input.style.width = `${width}px`;
 });
+
