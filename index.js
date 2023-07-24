@@ -21,7 +21,7 @@ function sendMessage() {
 
   const data = {
     text: query,
-    key: '931605b9-87c1-45af-b9b8-b59b8f5ad17a',
+    key: '4ba7bc8e-5fda-4691-8427-1f5abddaae0d',
     user_id: userId,
     speak: false
   };
