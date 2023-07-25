@@ -42,26 +42,46 @@ a {
 }
 
 .input-container {
-  display: flex;
-  align-items: center;
-  max-width: 80%;
-  transition: max-width 0.5s, height 0.5s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    position: relative;
 }
 
 #input {
-  /* Existing input styles ... */
-  flex-grow: 1;
-  max-width: 80%;
-  transition: max-width 0.5s, height 0.5s;
+    margin-right: 10px;
+    border: 2px solid rgb(242, 242, 242);
+    caret-color: rgb(242, 242, 242);
+    color: rgb(242, 242, 242);
+    -webkit-animation: inputVisibilityB .8s infinite alternate;
+    animation: inputVisibilityB .8s infinite alternate;
+    background: transparent;
+    bottom: 32px;
+    font-weight: 320;
+    height: 32px;
+    outline: none;
+    padding: 0 8px;
+    position: absolute;
+    transition: border-color .1s,color .1s,text-shadow .1s,-webkit-transform .3s;
+    transition: border-color .1s,color .1s,text-shadow .1s,transform .3s;
+    transition: border-color .1s,color .1s,text-shadow .1s,transform .3s,-webkit-transform .3s;
+    width: 240px;
+	max-width: 80%;
+    transition: width 0.5s, height 0.5s;
 }
 
-/* New styles for the submit button */
+/* New styles for the button */
 #submit {
-  /* Existing button styles ... */
-  margin-left: 5px;
-  flex-shrink: 0;
-  transition: opacity 0.25s ease-in-out;
-  opacity: 1;
+    margin-left: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+	margin-left: 5px;
+    min-width: 60px;
 }
 
 /* New styles for the loading container */
