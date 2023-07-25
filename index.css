@@ -101,7 +101,6 @@ a {
     }
 }
 
-
 .message {
     display: none;
     animation: fadeIn 0.5s ease-in-out;
@@ -132,24 +131,39 @@ a {
   }
 }
 
-        /* Código CSS existente omitido por simplicidade */
+/* Código CSS existente omitido por simplicidade */
 
-        /* Estilos para o botão de voltar */
-        .back-button {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            padding: 10px;
-            color: white;
-            font-weight: bold;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-        }
+/* Estilos para o botão de voltar */
+.back-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
 
-        .back-icon {
-            width: 20px;
-            height: 20px;
-            margin-right: 5px;
-            fill: white;
-        }
+.back-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    fill: white;
+}
+
+/* Novo estilo para o fundo escuro e com blur */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6); /* Cor de fundo escuro */
+    backdrop-filter: blur(8px); /* Adiciona o blur */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999; /* Certifique-se de que a camada de fundo fique acima de todos os outros elementos */
+}
