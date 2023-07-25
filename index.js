@@ -81,31 +81,35 @@ function sendMessage() {
                 }
             }, 100);
 
-            // Hide the loading spinner and show the input field and submit button again with fade
+            // Show the input field and submit button again with fade
+            inputField.style.display = 'block';
+            submitButton.style.display = 'block';
+            setTimeout(() => {
+                inputField.style.opacity = 1;
+                submitButton.style.opacity = 1;
+            }, 50);
+
+            // Hide the loading spinner with fade
             loadingContainer.style.opacity = 0;
             setTimeout(() => {
                 loadingContainer.style.display = 'none';
-                inputField.style.display = 'block';
-                submitButton.style.display = 'block';
-                setTimeout(() => {
-                    inputField.style.opacity = 1;
-                    submitButton.style.opacity = 1;
-                }, 50);
             }, 500);
         })
         .catch(error => {
             console.error('Error:', error);
 
-            // Hide the loading spinner and show the input field and submit button again with fade
+            // Show the input field and submit button again with fade
+            inputField.style.display = 'block';
+            submitButton.style.display = 'block';
+            setTimeout(() => {
+                inputField.style.opacity = 1;
+                submitButton.style.opacity = 1;
+            }, 50);
+
+            // Hide the loading spinner with fade
             loadingContainer.style.opacity = 0;
             setTimeout(() => {
                 loadingContainer.style.display = 'none';
-                inputField.style.display = 'block';
-                submitButton.style.display = 'block';
-                setTimeout(() => {
-                    inputField.style.opacity = 1;
-                    submitButton.style.opacity = 1;
-                }, 50);
             }, 500);
         });
 
