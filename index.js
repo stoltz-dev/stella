@@ -23,10 +23,19 @@ submitButton.addEventListener('click', () => {
 });
 
 function sendMessage() {
-    // Hide the input field and show the loading spinner with a fade-in effect
-    inputField.style.display = 'none';
+    // Hide the input field and submit button with fade
+    inputField.style.opacity = 0;
+    submitButton.style.opacity = 0;
+    setTimeout(() => {
+        inputField.style.display = 'none';
+        submitButton.style.display = 'none';
+    }, 500);
+
+    // Show the loading spinner with fade
     loadingContainer.style.display = 'block';
-    loadingContainer.style.animation = 'fadeInOut 2s ease-in-out';
+    setTimeout(() => {
+        loadingContainer.style.opacity = 1;
+    }, 500);
 
     const query = inputField.value;
 
@@ -72,26 +81,32 @@ function sendMessage() {
                 }
             }, 100);
 
-            // Hide the loading spinner with a fade-out effect
+            // Hide the loading spinner and show the input field and submit button again with fade
+            loadingContainer.style.opacity = 0;
             setTimeout(() => {
                 loadingContainer.style.display = 'none';
-                loadingContainer.style.animation = '';
-            }, 2000);
-
-            // Show the input field again
-            inputField.style.display = 'block';
+                inputField.style.display = 'block';
+                submitButton.style.display = 'block';
+                setTimeout(() => {
+                    inputField.style.opacity = 1;
+                    submitButton.style.opacity = 1;
+                }, 50);
+            }, 500);
         })
         .catch(error => {
             console.error('Error:', error);
 
-            // Hide the loading spinner with a fade-out effect
+            // Hide the loading spinner and show the input field and submit button again with fade
+            loadingContainer.style.opacity = 0;
             setTimeout(() => {
                 loadingContainer.style.display = 'none';
-                loadingContainer.style.animation = '';
-            }, 2000);
-
-            // Show the input field again
-            inputField.style.display = 'block';
+                inputField.style.display = 'block';
+                submitButton.style.display = 'block';
+                setTimeout(() => {
+                    inputField.style.opacity = 1;
+                    submitButton.style.opacity = 1;
+                }, 50);
+            }, 500);
         });
 
     // Clear the input field
@@ -116,7 +131,6 @@ function setCookie(name, value) {
 }
 
 const input = document.querySelector("#input");
-const inputContainer = document.querySelector(".input-container");
 
 input.addEventListener("focus", () => {
     input.style.transition = "width 0.5s";
@@ -129,6 +143,6 @@ input.addEventListener("blur", () => {
 });
 
 input.addEventListener("input", () => {
-    const width = Math.min(input.value.length * 10 + 240, inputContainer.clientWidth * 0.8);
+    const width = Math.min(input.value.length * 10 + 240, input.clientWidth * 0.8);
     input.style.width = `${width}px`;
 });
