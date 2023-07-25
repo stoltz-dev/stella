@@ -116,53 +116,19 @@ function setCookie(name, value) {
 }
 
 const input = document.querySelector("#input");
-const submitButton = document.querySelector("#submit");
 const inputContainer = document.querySelector(".input-container");
 
 input.addEventListener("focus", () => {
-    input.style.transition = "width 0.5s, height 0.5s";
-    input.style.width = "80%";
+    input.style.transition = "width 0.5s";
+    input.style.width = "300px";
 });
 
 input.addEventListener("blur", () => {
-    input.style.transition = "width 0.5s, height 0.5s";
-    input.style.width = "240px"; // Back to the original width
+    input.style.transition = "width 0.5s";
+    input.style.width = "240px"; // Return to the original size
 });
 
 input.addEventListener("input", () => {
-    const inputWidth = input.value.length * 10 + 240;
-    const maxWidth = Math.min(window.innerWidth * 0.8, 500);
-    const width = Math.min(inputWidth, maxWidth);
-
-    if (inputWidth <= maxWidth) {
-        // When inputWidth is less than or equal to maxWidth, only adjust the width
-        input.style.width = `${width}px`;
-        input.style.height = '32px';
-    } else {
-        // When inputWidth exceeds maxWidth, adjust both width and height
-        input.style.width = `${maxWidth}px`;
-        input.style.height = `${input.scrollHeight}px`;
-    }
-});
-
-// Function to get the input container's right position relative to the viewport
-function getInputContainerRight() {
-    const inputContainerRect = inputContainer.getBoundingClientRect();
-    return inputContainerRect.left + inputContainerRect.width;
-}
-
-// Event listener to update submit button position
-window.addEventListener("resize", () => {
-    const inputContainerRight = getInputContainerRight();
-    const submitButtonRight = submitButton.getBoundingClientRect().right;
-
-    // If the submit button is going off-screen, adjust its position
-    if (submitButtonRight > window.innerWidth) {
-        submitButton.style.left = `${window.innerWidth - submitButtonRight + 10}px`;
-    }
-
-    // If the input container is going off-screen, adjust its position
-    if (inputContainerRight > window.innerWidth) {
-        inputContainer.style.right = `${window.innerWidth - inputContainerRight}px`;
-    }
+    const width = Math.min(input.value.length * 10 + 240, inputContainer.clientWidth * 0.8);
+    input.style.width = `${width}px`;
 });
