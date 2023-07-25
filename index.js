@@ -23,9 +23,10 @@ submitButton.addEventListener('click', () => {
 });
 
 function sendMessage() {
-    // Hide the input field and show the loading spinner
+    // Hide the input field and show the loading spinner with a fade-in effect
     inputField.style.display = 'none';
     loadingContainer.style.display = 'block';
+    loadingContainer.style.animation = 'fadeInOut 2s ease-in-out';
 
     const query = inputField.value;
 
@@ -71,16 +72,26 @@ function sendMessage() {
                 }
             }, 100);
 
-            // Hide the loading spinner and show the input field again
+            // Hide the loading spinner with a fade-out effect
+            setTimeout(() => {
+                loadingContainer.style.display = 'none';
+                loadingContainer.style.animation = '';
+            }, 2000);
+
+            // Show the input field again
             inputField.style.display = 'block';
-            loadingContainer.style.display = 'none';
         })
         .catch(error => {
             console.error('Error:', error);
 
-            // Hide the loading spinner and show the input field again
+            // Hide the loading spinner with a fade-out effect
+            setTimeout(() => {
+                loadingContainer.style.display = 'none';
+                loadingContainer.style.animation = '';
+            }, 2000);
+
+            // Show the input field again
             inputField.style.display = 'block';
-            loadingContainer.style.display = 'none';
         });
 
     // Clear the input field
@@ -107,17 +118,41 @@ function setCookie(name, value) {
 const input = document.querySelector("#input");
 
 input.addEventListener("focus", () => {
-    input.style.transition = "width 0.5s";
-    input.style.width = "300px";
+  input.style.transition = "max-width 0.5s, height 0.5s";
+  input.style.width = "80%";
+  input.style.height = "48px";
 });
 
-// Event listener para detectar quando o input perde o foco
+// Event listener to reset the input field size on blur
 input.addEventListener("blur", () => {
-    input.style.transition = "width 0.5s";
-    input.style.width = "240px"; // Voltar ao tamanho original
+  input.style.transition = "max-width 0.5s, height 0.5s";
+  input.style.width = "240px";
+  input.style.height = "32px";
 });
 
+// Event listener to resize the input field horizontally as text is typed
 input.addEventListener("input", () => {
-    const width = Math.min(input.value.length * 10 + 240, 500);
-    input.style.width = `${width}px`;
+  const textWidth = Math.min(input.scrollWidth, 0.8 * window.innerWidth - 10);
+  input.style.width = `${textWidth}px`;
 });
+
+// Function to update the position of the submit button
+function updateSubmitButtonPosition() {
+  const inputRect = input.getBoundingClientRect();
+  const submitButtonRect = submitButton.getBoundingClientRect();
+
+  const rightSpace = window.innerWidth - inputRect.right;
+  const availableWidth = inputRect.width + rightSpace - 10;
+
+  if (availableWidth < submitButtonRect.width) {
+    submitButton.style.opacity = 0;
+  } else {
+    submitButton.style.opacity = 1;
+  }
+}
+
+// Call the updateSubmitButtonPosition function on window resize
+window.addEventListener("resize", updateSubmitButtonPosition);
+
+// Call the updateSubmitButtonPosition function on page load
+window.addEventListener("load", updateSubmitButtonPosition);
