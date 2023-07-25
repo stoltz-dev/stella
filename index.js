@@ -23,19 +23,9 @@ submitButton.addEventListener('click', () => {
 });
 
 function sendMessage() {
-    // Hide the input field and submit button with fade
-    inputField.style.opacity = 0;
-    submitButton.style.opacity = 0;
-    setTimeout(() => {
-        inputField.style.display = 'none';
-        submitButton.style.display = 'none';
-    }, 500);
-
-    // Show the loading spinner with fade
+    // Hide the input field and show the loading spinner
+    inputField.style.display = 'none';
     loadingContainer.style.display = 'block';
-    setTimeout(() => {
-        loadingContainer.style.opacity = 1;
-    }, 500);
 
     const query = inputField.value;
 
@@ -81,36 +71,16 @@ function sendMessage() {
                 }
             }, 100);
 
-            // Show the input field and submit button again with fade
+            // Hide the loading spinner and show the input field again
             inputField.style.display = 'block';
-            submitButton.style.display = 'block';
-            setTimeout(() => {
-                inputField.style.opacity = 1;
-                submitButton.style.opacity = 1;
-            }, 50);
-
-            // Hide the loading spinner with fade
-            loadingContainer.style.opacity = 0;
-            setTimeout(() => {
-                loadingContainer.style.display = 'none';
-            }, 500);
+            loadingContainer.style.display = 'none';
         })
         .catch(error => {
             console.error('Error:', error);
 
-            // Show the input field and submit button again with fade
+            // Hide the loading spinner and show the input field again
             inputField.style.display = 'block';
-            submitButton.style.display = 'block';
-            setTimeout(() => {
-                inputField.style.opacity = 1;
-                submitButton.style.opacity = 1;
-            }, 50);
-
-            // Hide the loading spinner with fade
-            loadingContainer.style.opacity = 0;
-            setTimeout(() => {
-                loadingContainer.style.display = 'none';
-            }, 500);
+            loadingContainer.style.display = 'none';
         });
 
     // Clear the input field
@@ -141,12 +111,13 @@ input.addEventListener("focus", () => {
     input.style.width = "300px";
 });
 
+// Event listener para detectar quando o input perde o foco
 input.addEventListener("blur", () => {
     input.style.transition = "width 0.5s";
-    input.style.width = "240px"; // Return to the original size
+    input.style.width = "240px"; // Voltar ao tamanho original
 });
 
 input.addEventListener("input", () => {
-    const width = Math.min(input.value.length * 10 + 240, input.clientWidth * 0.8);
+    const width = Math.min(input.value.length * 10 + 240, 500);
     input.style.width = `${width}px`;
 });
