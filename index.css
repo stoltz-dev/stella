@@ -43,48 +43,41 @@ a {
 
 .input-container {
   display: flex;
-  justify-content: center;
-  margin-top: 20px;
+  align-items: center;
+  max-width: 80%;
+  transition: max-width 0.5s, height 0.5s;
 }
 
 #input {
-    margin-right: 10px;
-    border: 2px solid rgb(242, 242, 242);
-    caret-color: rgb(242, 242, 242);
-    color: rgb(242, 242, 242);
-    -webkit-animation: inputVisibilityB .8s infinite alternate;
-    animation: inputVisibilityB .8s infinite alternate;
-    background: transparent;
-    bottom: 32px;
-    font-weight: 320;
-    height: 32px;
-    outline: none;
-    padding: 0 8px;
-    position: absolute;
-    transition: border-color .1s,color .1s,text-shadow .1s,-webkit-transform .3s;
-    transition: border-color .1s,color .1s,text-shadow .1s,transform .3s;
-    transition: border-color .1s,color .1s,text-shadow .1s,transform .3s,-webkit-transform .3s;
-    width: 240px;
+  /* Existing input styles ... */
+  flex-grow: 1;
+  max-width: 80%;
+  transition: max-width 0.5s, height 0.5s;
 }
 
-/* New styles for the button */
+/* New styles for the submit button */
 #submit {
-    margin-left: 5px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    padding: 6px 12px;
-    border-radius: 4px;
-    cursor: pointer;
+  /* Existing button styles ... */
+  margin-left: 5px;
+  flex-shrink: 0;
+  transition: opacity 0.25s ease-in-out;
+  opacity: 1;
 }
 
 /* New styles for the loading container */
 .loading-container {
-    display: none;
     position: absolute;
-    top: 50%;
+    bottom: 16px;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%);
+    display: none;
+}
+
+/* New keyframes for fading in and out */
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
 }
 
 .loader {
