@@ -42,17 +42,10 @@ a {
 }
 
 .input-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out;
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
-
 
 #input {
     margin-right: 10px;
@@ -62,24 +55,27 @@ a {
     -webkit-animation: inputVisibilityB .8s infinite alternate;
     animation: inputVisibilityB .8s infinite alternate;
     background: transparent;
+    bottom: 32px;
     font-weight: 320;
     height: 32px;
     outline: none;
     padding: 0 8px;
-    transition: border-color .1s, color .1s, text-shadow .1s, transform .3s;
+    position: absolute;
+    transition: border-color .1s,color .1s,text-shadow .1s,-webkit-transform .3s;
+    transition: border-color .1s,color .1s,text-shadow .1s,transform .3s;
+    transition: border-color .1s,color .1s,text-shadow .1s,transform .3s,-webkit-transform .3s;
     width: 240px;
-    max-width: 80%;
 }
 
+/* New styles for the button */
 #submit {
+    margin-left: 5px;
     background-color: #4CAF50;
     color: white;
     border: none;
     padding: 6px 12px;
     border-radius: 4px;
     cursor: pointer;
-	opacity: 1;
-    transition: opacity 0.5s ease-in-out;
 }
 
 /* New styles for the loading container */
@@ -89,8 +85,6 @@ a {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
 }
 
 .loader {
