@@ -116,43 +116,53 @@ function setCookie(name, value) {
 }
 
 const input = document.querySelector("#input");
+const submitButton = document.querySelector("#submit");
+const inputContainer = document.querySelector(".input-container");
 
 input.addEventListener("focus", () => {
-  input.style.transition = "max-width 0.5s, height 0.5s";
-  input.style.width = "80%";
-  input.style.height = "48px";
+    input.style.transition = "width 0.5s, height 0.5s";
+    input.style.width = "80%";
 });
 
-// Event listener to reset the input field size on blur
 input.addEventListener("blur", () => {
-  input.style.transition = "max-width 0.5s, height 0.5s";
-  input.style.width = "240px";
-  input.style.height = "32px";
+    input.style.transition = "width 0.5s, height 0.5s";
+    input.style.width = "240px"; // Back to the original width
 });
 
-// Event listener to resize the input field horizontally as text is typed
 input.addEventListener("input", () => {
-  const textWidth = Math.min(input.scrollWidth, 0.8 * window.innerWidth - 10);
-  input.style.width = `${textWidth}px`;
+    const inputWidth = input.value.length * 10 + 240;
+    const maxWidth = Math.min(window.innerWidth * 0.8, 500);
+    const width = Math.min(inputWidth, maxWidth);
+
+    if (inputWidth <= maxWidth) {
+        // When inputWidth is less than or equal to maxWidth, only adjust the width
+        input.style.width = `${width}px`;
+        input.style.height = '32px';
+    } else {
+        // When inputWidth exceeds maxWidth, adjust both width and height
+        input.style.width = `${maxWidth}px`;
+        input.style.height = `${input.scrollHeight}px`;
+    }
 });
 
-// Function to update the position of the submit button
-function updateSubmitButtonPosition() {
-  const inputRect = input.getBoundingClientRect();
-  const submitButtonRect = submitButton.getBoundingClientRect();
-
-  const rightSpace = window.innerWidth - inputRect.right;
-  const availableWidth = inputRect.width + rightSpace - 10;
-
-  if (availableWidth < submitButtonRect.width) {
-    submitButton.style.opacity = 0;
-  } else {
-    submitButton.style.opacity = 1;
-  }
+// Function to get the input container's right position relative to the viewport
+function getInputContainerRight() {
+    const inputContainerRect = inputContainer.getBoundingClientRect();
+    return inputContainerRect.left + inputContainerRect.width;
 }
 
-// Call the updateSubmitButtonPosition function on window resize
-window.addEventListener("resize", updateSubmitButtonPosition);
+// Event listener to update submit button position
+window.addEventListener("resize", () => {
+    const inputContainerRight = getInputContainerRight();
+    const submitButtonRight = submitButton.getBoundingClientRect().right;
 
-// Call the updateSubmitButtonPosition function on page load
-window.addEventListener("load", updateSubmitButtonPosition);
+    // If the submit button is going off-screen, adjust its position
+    if (submitButtonRight > window.innerWidth) {
+        submitButton.style.left = `${window.innerWidth - submitButtonRight + 10}px`;
+    }
+
+    // If the input container is going off-screen, adjust its position
+    if (inputContainerRight > window.innerWidth) {
+        inputContainer.style.right = `${window.innerWidth - inputContainerRight}px`;
+    }
+});
