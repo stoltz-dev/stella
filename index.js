@@ -5,7 +5,7 @@ const loadingContainer = document.getElementById('loading-container');
 let newMessage = null;
 let userId = getCookie('userId');
 
-// If the userId is not set, generate a new one
+// Se o userId não estiver definido, gere um novo
 if (!userId) {
     userId = 'website-user-' + Math.random().toString(36).substring(2, 15);
     setCookie('userId', userId);
@@ -17,15 +17,14 @@ inputField.addEventListener('keydown', (event) => {
     }
 });
 
-// Event listener for the submit button click
+// Event listener para o clique no botão Enviar
 submitButton.addEventListener('click', () => {
     sendMessage();
 });
 
 function sendMessage() {
-    // Hide the input field and show the loading spinner
-    inputField.style.display = 'none';
-    loadingContainer.style.display = 'block';
+    // Adicione a classe 'loading-overlay' para mostrar o fundo escuro com blur enquanto carrega
+    loadingContainer.classList.add('loading-overlay');
 
     const query = inputField.value;
 
@@ -48,18 +47,18 @@ function sendMessage() {
             console.log('Input:', data.input);
             console.log('Output:', data.output);
 
-            // Create a new message element
+            // Crie um novo elemento de mensagem
             newMessage = document.createElement('div');
             newMessage.classList.add('message');
             newMessage.textContent = data.output.text;
 
-            // Append the message element to the chat messages container
+            // Adicione o elemento de mensagem ao container de mensagens do chat
             chatMessages.appendChild(newMessage);
 
-            // Scroll to the bottom of the chat messages container
+            // Role para a parte inferior do container de mensagens do chat
             chatMessages.scrollTop = chatMessages.scrollHeight;
 
-            // Fade in the message element
+            // Fade in o elemento da mensagem
             setTimeout(() => {
                 newMessage.style.display = 'block';
                 const messages = document.querySelectorAll('.message');
@@ -71,23 +70,21 @@ function sendMessage() {
                 }
             }, 100);
 
-            // Hide the loading spinner and show the input field again
-            inputField.style.display = 'block';
-            loadingContainer.style.display = 'none';
+            // Remova a classe 'loading-overlay' para esconder o fundo escuro com blur
+            loadingContainer.classList.remove('loading-overlay');
         })
         .catch(error => {
             console.error('Error:', error);
 
-            // Hide the loading spinner and show the input field again
-            inputField.style.display = 'block';
-            loadingContainer.style.display = 'none';
+            // Remova a classe 'loading-overlay' para esconder o fundo escuro com blur em caso de erro
+            loadingContainer.classList.remove('loading-overlay');
         });
 
-    // Clear the input field
+    // Limpe o campo de entrada
     inputField.value = '';
 }
 
-// Function to get the value of a cookie
+// Função para obter o valor de um cookie
 function getCookie(name) {
     const cookies = document.cookie.split(';');
     for (let i = 0; i < cookies.length; i++) {
@@ -99,7 +96,7 @@ function getCookie(name) {
     return null;
 }
 
-// Function to set the value of a session cookie
+// Função para definir o valor de um cookie de sessão
 function setCookie(name, value) {
     document.cookie = name + "=" + value + "; path=/";
 }
