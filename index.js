@@ -12,7 +12,17 @@ if (!userId) {
 
 inputField.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
-    sendMessage();
+    if (event.shiftKey) {
+      // Insert a line break at the current cursor position
+      const cursorPosition = inputField.selectionStart;
+      inputField.value =
+        inputField.value.substring(0, cursorPosition) +
+        "" +
+        inputField.value.substring(cursorPosition);
+      inputField.selectionEnd = cursorPosition + 1;
+    } else {
+      sendMessage();
+    }
   }
 });
 
