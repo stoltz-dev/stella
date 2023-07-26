@@ -1,36 +1,34 @@
-<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Stella</title>
 
-        <link
-            href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700&display=swap"
-            rel="stylesheet"
-        />
-        <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/@ricky0123/vad/dist/index.browser.js"></script>
-        <link rel="stylesheet" href="./index.css" />
-        <link rel="icon" type="image/svg+xml" href="/images/chat.svg">
-    </head>
-    <body>
-        <div class="background"></div>
-        <a href="/ai-selector" class="back-button">
-            <img src="/images/back.svg" class="back-icon" alt="Voltar">
-            Voltar
-        </a>
-        <div class="chat-container">
-            <div id="chat-messages"></div>
-            <div class="input-container">
-                <input type="text" id="input" placeholder="Pergunte me qualquer coisa">
-                <button id="submit">Enviar</button>
-            </div>
-            <div id="loading-container" class="loading-container">
-                <div class="loader">/</div>
-            </div>
-        </div>
-    </body>
-    <script src="./index.js"></script>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stella</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@ricky0123/vad/dist/index.browser.js"></script>
+  <link rel="stylesheet" href="./index.css" />
+  <link rel="icon" type="image/svg+xml" href="/images/chat.svg">
+</head>
+
+<body>
+  <div class="background"></div>
+  <a href="/ai-selector" class="back-button">
+    <img src="/images/back.svg" class="back-icon" alt="Voltar">
+    Voltar
+  </a>
+  <div class="chat-container">
+    <div id="chat-messages"></div>
+    <div class="input-container">
+      <textarea type="text" id="input" placeholder="Pergunte me qualquer coisa" size="8" rows="1"></textarea>
+    </div>
+    <div id="loading-container" class="loading-container">
+      <div class="loader">/</div>
+    </div>
+  </div>
+</body>
+<script src="./index.js"></script>
+
 </html>
