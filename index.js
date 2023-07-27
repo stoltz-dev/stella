@@ -22,7 +22,7 @@ function plugin(){
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-    text: "/plugin install 0008",
+    text: "/plugin install 0013",
     key: "4ba7bc8e-5fda-4691-8427-1f5abddaae0d",
     user_id: userId,
     speak: false
