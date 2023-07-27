@@ -26,7 +26,7 @@ function plugin(){
     key: "4ba7bc8e-5fda-4691-8427-1f5abddaae0d",
     user_id: userId,
     speak: false
-  };)
+  })
   })
   //accepting
   fetch("https://api.carterlabs.ai/chat", {
@@ -39,7 +39,7 @@ function plugin(){
     key: "4ba7bc8e-5fda-4691-8427-1f5abddaae0d",
     user_id: userId,
     speak: false
-  };)
+  })
   })
 }
 
