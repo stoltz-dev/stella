@@ -10,6 +10,42 @@ if (!userId) {
   setCookie("userId", userId);
 }
 
+window.onload = function() {
+  plugin();
+};
+
+function plugin(){
+    const data = {
+    text: "/plugin install 0008",
+    key: "4ba7bc8e-5fda-4691-8427-1f5abddaae0d",
+    user_id: userId,
+    speak: false
+  };
+
+  fetch("https://api.carterlabs.ai/chat", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  })
+
+      const data = {
+    text: "yes",
+    key: "4ba7bc8e-5fda-4691-8427-1f5abddaae0d",
+    user_id: userId,
+    speak: false
+  };
+
+  fetch("https://api.carterlabs.ai/chat", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  })
+}
+
 inputField.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     if (event.shiftKey) {
