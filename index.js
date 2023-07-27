@@ -15,34 +15,31 @@ window.onload = function() {
 };
 
 function plugin(){
-    const data = {
+  //installing plugin
+  fetch("https://api.carterlabs.ai/chat", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
     text: "/plugin install 0008",
     key: "4ba7bc8e-5fda-4691-8427-1f5abddaae0d",
     user_id: userId,
     speak: false
-  };
-
+  };)
+  })
+  //accepting
   fetch("https://api.carterlabs.ai/chat", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
-    body: JSON.stringify(data)
-  })
-
-      const data2 = {
+    body: JSON.stringify({
     text: "yes",
     key: "4ba7bc8e-5fda-4691-8427-1f5abddaae0d",
     user_id: userId,
     speak: false
-  };
-
-  fetch("https://api.carterlabs.ai/chat", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify(data)
+  };)
   })
 }
 
