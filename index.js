@@ -30,7 +30,7 @@ function plugin(){
     body: JSON.stringify(data)
   })
 
-      const data = {
+      const data2 = {
     text: "yes",
     key: "4ba7bc8e-5fda-4691-8427-1f5abddaae0d",
     user_id: userId,
