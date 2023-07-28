@@ -38,6 +38,7 @@ if (!sent && !accepted) {
     })
     .catch(error => {
       // Handle the error if needed
+        console.error('An error occurred:', error);
     });
 }
 
@@ -62,6 +63,7 @@ if (sent && !accepted) {
     })
     .catch(error => {
       // Handle the error if needed
+        console.error('An error occurred:', error);
     });
 }
 
