@@ -16,31 +16,55 @@ window.onload = function() {
 
 function plugin(){
   //installing plugin
+  var sent = false;
+  var accepted = false;
+if (!sent && !accepted) {
   fetch("https://api.carterlabs.ai/chat", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-    text: "/plugin install 0013",
-    key: "4ba7bc8e-5fda-4691-8427-1f5abddaae0d",
-    user_id: userId,
-    speak: false
+      text: "/plugin install 0013",
+      key: "4ba7bc8e-5fda-4691-8427-1f5abddaae0d",
+      user_id: userId,
+      speak: false
+    })
   })
-  })
-  //accepting
+    .then(response => response.json())
+    .then(data => {
+      sent = true;
+      // Handle the response data if needed
+    })
+    .catch(error => {
+      // Handle the error if needed
+    });
+}
+
+if (sent && !accepted) {
+  // Accepting
   fetch("https://api.carterlabs.ai/chat", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
     },
     body: JSON.stringify({
-    text: "yes",
-    key: "4ba7bc8e-5fda-4691-8427-1f5abddaae0d",
-    user_id: userId,
-    speak: false
+      text: "yes",
+      key: "4ba7bc8e-5fda-4691-8427-1f5abddaae0d",
+      user_id: userId,
+      speak: false
+    })
   })
-  })
+    .then(response => response.json())
+    .then(data => {
+      accepted = true;
+      // Handle the response data if needed
+    })
+    .catch(error => {
+      // Handle the error if needed
+    });
+}
+
 }
 
 inputField.addEventListener("keydown", (event) => {
