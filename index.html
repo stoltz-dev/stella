@@ -21,13 +21,27 @@
   </a>
   <div class="chat-container">
     <div id="chat-messages"></div>
-    <div class="input-container">
-      <textarea type="text" id="input" placeholder="Pergunte me qualquer coisa" size="8" rows="1"></textarea>
-    </div>
-    <div id="loading-container" class="loading-container">
-      <div class="loader">/</div>
+    <div class="loading-container">
+      <!-- Loading animation container -->
+      <div class="loading">
+        <!-- We make this div spin -->
+        <div class="spinner">
+          <!-- Mask of the quarter of circle -->
+          <div class="mask">
+            <!-- Inner masked circle -->
+            <div class="maskedCircle"></div>
+          </div>
+        </div>
+      </div>
+      <div class="spinline"></div>
+      <div class="spinline2"></div>
+      <div class="spinline3"></div>
     </div>
   </div>
+  <div class="input-container">
+    <textarea type="text" id="input" placeholder="Pergunte me qualquer coisa" size="8" rows="1"></textarea>
+  </div>
+
 </body>
 <script src="./index.js"></script>
 
