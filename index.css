@@ -79,26 +79,158 @@ textarea {
   overflow: hidden;
 }
 
-/* New styles for the loading container */
-.loading-container {
-  display: none;
-  left: 50%;
-  transform: translateX(-50%);
-  margin-top: 20px;
-}
-
-.loader {
-  font-size: 24px;
-  animation: spin 1s linear infinite;
-}
-
+/* Animation keyframes - you need to add prefixes */
 @keyframes spin {
   0% {
     transform: rotate(0deg);
   }
-  100% {
+  25% {
     transform: rotate(360deg);
   }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes spinthick {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0.8;
+  }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0px 0px 20px 4px #338ec2;
+  }
+  100% {
+    box-shadow: 0px 0px 20px 4px #bb9026;
+  }
+}
+
+@keyframes reverseGlow {
+  0% {
+    box-shadow: 0px 0px 20px 4px #bb9026;
+  }
+  100% {
+    box-shadow: 0px 0px 20px 4px #338ec2;
+  }
+}
+
+/* Loading animation container */
+.loading {
+  position: absolute;
+  top: 50px;
+  right: 50px;
+  width: 50px;
+  height: 50px;
+  margin: -14px 0 0 -14px;
+  transition: top 0.2s linear;
+}
+
+/* Spinning circle (inner circle) */
+.loading .maskedCircle {
+  width: 28px;
+  height: 28px;
+  border-radius: 20px;
+  animation: blink 1s infinite linear;
+  border: 5px solid #43d5ff;
+  box-shadow: 0px 0px 20px 4px #338ec2;
+  transition: all 0.2s linear;
+}
+
+@keyframes color {
+  from {
+    border: 5px solid #43d5ff;
+  }
+  to {
+    border: 5px solid #eeda53;
+  }
+}
+
+@keyframes reverseColor {
+  from {
+    border: 5px solid #eeda53;
+  }
+  to {
+    border: 5px solid #43d5ff;
+  }
+}
+
+/* Spinning circle mask */
+.loading .mask {
+  width: 42px;
+  height: 42px;
+}
+
+/* Spinner */
+.loading .spinner {
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  width: 38px;
+  height: 38px;
+}
+
+.spinline {
+  position: fixed;
+  top: 52px;
+  right: 60px;
+  width: 38px;
+  height: 6px;
+  background: black;
+  opacity: 0.5;
+  border-radius: 6px;
+  box-shadow: 0 0 8px 2px;
+  animation: spin 12s infinite reverse;
+  color: black;
+}
+.spinline2 {
+  position: fixed;
+  top: 52px;
+  right: 60px;
+  width: 38px;
+  height: 10px;
+  background: black;
+  animation: spinthick 4s infinite reverse;
+  opacity: 0.5;
+  border-radius: 6px;
+  box-shadow: 0 0 15px 5px;
+  color: black;
+}
+.spinline3 {
+  position: fixed;
+  top: 52px;
+  right: 60px;
+  width: 36px;
+  height: 6px;
+  background: black;
+  animation: spinthick 2s infinite reverse;
+  animation-delay: 1s;
+  opacity: 0.5;
+  border-radius: 6px;
+  box-shadow: 0 0 20px 6px;
+  color: black;
 }
 
 .message {
