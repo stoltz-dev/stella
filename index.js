@@ -10,7 +10,6 @@ if (!userId) {
   setCookie("userId", userId);
 }
 
-
 inputField.addEventListener("keydown", (event) => {
   if (event.key === "Enter") {
     if (event.shiftKey) {
@@ -27,10 +26,17 @@ inputField.addEventListener("keydown", (event) => {
   }
 });
 
+function randomDelay(min, max) {
+  return Math.random() * (max - min) + min;
+}
+
 function sendMessage() {
   // Hide the input field and show the loading spinner
-  loadingContainer.style.display = "block";
-  loadingContainer.style.animation = "fadeIn 0.5s ease forwards";
+  const circulo = document.querySelector(".maskedCircle");
+  const loading = document.querySelector(".loading-container");
+
+  const delay = randomDelay(500, 2000);
+  circulo.style.animation = `color 0.4s linear forwards, glow 0.4s linear forwards, blink 0.3s infinite steps(1) ${delay}ms`;
   inputField.style.animation = "fadeOut 0.5s ease forwards";
   inputField.disabled = true;
 
@@ -84,27 +90,21 @@ function sendMessage() {
 
       // Show the input field with a fade-in animation
       inputField.style.animation = "fadeIn 0.5s ease forwards";
-      inputField.style.width = "240px";
-      inputField.style.height = "29px";
-
       inputField.disabled = false;
-      inputField.focus();
 
       // Hide the loading container with a fade-out animation
-      loadingContainer.style.animation = "fadeOut 0.5s ease forwards";
+      circulo.style.animation =
+        "reverseColor 1s linear forwards, reverseGlow 1s linear forwards, blink 1s infinite linear";
     })
     .catch((error) => {
       console.error("Error:", error);
 
       // Hide the loading spinner and show the input field again
-
-
     });
 
   // Clear the input field
   inputField.value = "";
 }
-
 
 // Function to get the value of a cookie
 function getCookie(name) {
