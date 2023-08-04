@@ -37,7 +37,7 @@ function sendMessage() {
 
   const delay = randomDelay(500, 1000);
   const tempo = randomDelay(250, 500);
-  circulo.style.animation = `color 0.4s linear forwards, glow 0.4s linear forwards, blink 0.5s infinite linear ${delay}ms`;
+  circulo.style.animation = `color 0.4s linear forwards, glow 0.4s linear forwards, blink 0.3s infinite linear ${delay}ms`;
   inputField.style.animation = "fadeOut 0.5s ease forwards";
   inputField.disabled = true;
 
