@@ -43,12 +43,19 @@ function sendMessage() {
 
   const query = inputField.value;
 
-  const data = {
-    text: query,
-    key: "4ba7bc8e-5fda-4691-8427-1f5abddaae0d",
-    user_id: userId,
-    speak: false
-  };
+const data = {
+  "messages": [
+    {
+      "content": "You are a helpful assistant.",
+      "role": "system"
+    },
+    {
+      "content": query,
+      "role": "user"
+    }
+  ]
+};
+
 
   fetch("https://limcheekin-zephyr-7b-beta-gguf.hf.space/v1/chat/completions", {
     method: "POST",
