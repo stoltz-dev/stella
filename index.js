@@ -50,7 +50,7 @@ function sendMessage() {
     speak: false
   };
 
-  fetch("https://api.carterlabs.ai/chat", {
+  fetch("https://limcheekin-zephyr-7b-beta-gguf.hf.space/v1/chat/completions", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
