@@ -72,7 +72,8 @@ const data = {
       // Create a new message element
       newMessage = document.createElement("div");
       newMessage.classList.add("message");
-      newMessage.textContent = data.output.text;
+      newMessage.textContent = data.choices[0].message.content;
+      console.log(data);
 
       // Append the message element to the chat messages container
       chatMessages.appendChild(newMessage);
