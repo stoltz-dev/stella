@@ -10,13 +10,24 @@
         body {
             background-color: #272e42;
         }
+
+        .app {
+            margin: 5%;
+        }
     </style>
 </head>
 
 <body> <!-- Use the async attribute to load the script asynchronously -->
     <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/4.1.2/gradio.js" async></script>
-    <!-- Add an alt attribute to the gradio-app element for accessibility --> <gradio-app space="Rafaa/stella"
-        eager="true" info="false" alt="Stella web app" container="false"></gradio-app>
+    <!-- Add an alt attribute to the gradio-app element for accessibility --> 
+    <div class="app">
+        <gradio-app 
+            space="Rafaa/stella" eager="true"
+            info="false" 
+            alt="Stella web app"
+            container="false"            
+        ></gradio-app>
+    </div>
 </body>
 
 </html>
