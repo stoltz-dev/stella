@@ -79,6 +79,10 @@ textarea {
   overflow: hidden;
 }
 
+#input:focus {
+  width: 300px;
+}
+
 /* Animation keyframes - you need to add prefixes */
 @keyframes spin {
   0% {
