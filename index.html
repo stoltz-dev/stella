@@ -1,33 +1,48 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Add a meta description for SEO -->
-    <meta name="description" content="Stella is a web app that generates beautiful flower images.">
-    <title>Stella 🌸</title> <!-- Move the style to an external CSS file -->
-    <style>
-        body {
-            background-color: #272e42;
-        }
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stella</title>
 
-        .app {
-            margin: 5%;
-        }
-    </style>
+  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@ricky0123/vad/dist/index.browser.js"></script>
+  <link rel="stylesheet" href="./index.css" />
+  <link rel="icon" type="image/svg+xml" href="/images/chat.svg">
 </head>
 
-<body> <!-- Use the async attribute to load the script asynchronously -->
-    <script type="module" src="https://gradio.s3-us-west-2.amazonaws.com/4.1.2/gradio.js" async></script>
-    <!-- Add an alt attribute to the gradio-app element for accessibility --> 
-    <div class="app">
-        <gradio-app 
-            space="Rafaa/stella" eager="true"
-            info="false" 
-            alt="Stella web app"
-            container="false"            
-        ></gradio-app>
+<body>
+  <div class="background"></div>
+  <a href="/ai-selector" class="back-button">
+    <img src="/images/back.svg" class="back-icon" alt="Voltar">
+    Voltar
+  </a>
+  <div class="chat-container">
+    <div id="chat-messages"></div>
+    <div class="loading-container">
+      <!-- Loading animation container -->
+      <div class="loading">
+        <!-- We make this div spin -->
+        <div class="spinner">
+          <!-- Mask of the quarter of circle -->
+          <div class="mask">
+            <!-- Inner masked circle -->
+            <div class="maskedCircle"></div>
+          </div>
+        </div>
+      </div>
+      <div class="spinline"></div>
+      <div class="spinline2"></div>
+      <div class="spinline3"></div>
     </div>
+  </div>
+  <div class="input-container">
+    <textarea type="text" id="input" placeholder="Pergunte me qualquer coisa" size="8" rows="1"></textarea>
+  </div>
+
 </body>
+<script src="./index.js"></script>
 
 </html>
