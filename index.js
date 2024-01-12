@@ -10,7 +10,3 @@ function OnInput() {
 }
 
 let pao = true;
-
-while (pao == true) {
-  document.getElementsByTagName("textarea")[0].dispatchEvent(new Event('input', { bubbles: true }));
-}
