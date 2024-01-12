@@ -8,3 +8,9 @@ function OnInput() {
   this.style.height = 0;
   this.style.height = (this.scrollHeight) + "px";
 }
+
+pao = true;
+
+while pao == true {
+  document.getElementsByTagName("textarea")[0].dispatchEvent(new Event('input', { bubbles: true }));
+}
