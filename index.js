@@ -8,5 +8,3 @@ function OnInput() {
   this.style.height = 0;
   this.style.height = (this.scrollHeight) + "px";
 }
-
-let pao = true;
