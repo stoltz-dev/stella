@@ -52,6 +52,23 @@
   <script src="./index.js"></script>
   <script type="module">
 import { HfInference } from "https://cdn.skypack.dev/@huggingface/inference@2.6.4";
+async function* textStreamRes(hf, controller, input) {
+	let tokens = [];
+	for await (const output of hf.textGenerationStream(
+		{
+			model: "mistralai/Mixtral-8x7B-Instruct-v0.1",
+			inputs: "<s>[INST][/INST]",
+			parameters: { max_new_tokens: 1000 },
+		},
+		{
+			use_cache: false,
+			signal: controller.signal,
+		}
+	)) {
+		tokens.push(output);
+		yield tokens;
+	}
+}
 
 async function run() {
   const controller = new AbortController();
