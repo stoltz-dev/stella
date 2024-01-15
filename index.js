@@ -9,7 +9,6 @@ function OnInput() {
   this.style.height = (this.scrollHeight) + "px";
 }
 
-import { HfInference } from "@huggingface/inference";
 
 // Carrega o modelo e o tokenizador
 const model = AutoModelForCausalLM.fromPretrained("mistralai/Mixtral-8x7B-v0.1");
