@@ -77,7 +77,7 @@ async function run() {
   const input = message.replace("{:}", textInput);
   const token = undefined;
   const hf = new HfInference(token);
-  const gen = document.querySelector("#messages");
+  const gen = document.querySelector("#message");
 
         gen.innerHTML = "";
         try {
