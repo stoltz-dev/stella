@@ -5,20 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stella</title>
 
-  <link href="./Stella_files/css2" rel="stylesheet">
-  <script src="./Stella_files/ort.js.download"></script>
-  <script src="./Stella_files/index.browser.js.download"></script>
-  <link rel="stylesheet" href="./Stella_files/index.css">
+		<meta charset="UTF-8" />
+		<script src="https://cdn.tailwindcss.com"></script>
+		<!-- polyfill for firefox + import maps -->
+		<script src="https://unpkg.com/es-module-shims@1.7.0/dist/es-module-shims.js"></script>
+		<script type="importmap">
+			{
+				"imports": {
+					"@huggingface/inference": "https://cdn.jsdelivr.net/npm/@huggingface/inference@1.7.1/+esm"
+				}
+			}
+		</script>
+  <link rel="stylesheet" href="./index.css">
   <link rel="icon" type="image/svg+xml" href="https://syntz.is-a.dev/images/chat.svg">
-  <script src="./Stella_files/transformers"></script>
-  <script src="./Stella_files/es-module-shims.js.download"></script>
-  <script type="importmap">
-    {
-      "imports": {
-        "@huggingface/inference": "https://cdn.jsdelivr.net/npm/@huggingface/inference@1.7.1/+esm"
-      }
-    }
-  </script>
 </head>
 
 <body>
