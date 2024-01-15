@@ -62,27 +62,17 @@ async function run() {
   const hf = new HfInference(token);
   const gen = document.querySelector("#chat-messages");
 
-  try {
-    let tokens = [];
-    for await (const output of hf.textGenerationStream(
-      {
-        model: "mistralai/Mixtral-8x7B-Instruct-v0.1",
-        inputs: input,
-        parameters: { max_new_tokens: 1000 },
-      },
-      {
-        use_cache: false,
-        signal: controller.signal,
-      }
-    )) {
-      tokens.push(output);
-      gen.innerHTML = tokens.join(" ");
-    }
-
-		document.querySelector("#input").value = "";
-  } catch (error) {
-    console.error("Error generating text:", error);
-  }
+        gen.innerHTML = "";
+        try {
+          for await (const tokens of textStreamRes(hf, controller, input)) {
+            const lastToken = tokens[tokens.length - 1];
+            const span = document.createElement("span");
+            span.innerText = lastToken.token.text;
+            gen.appendChild(span);
+          }
+        } catch (e) {
+          console.log("aborted");
+        }
 }
 
 document.addEventListener("keydown", function (event) {
