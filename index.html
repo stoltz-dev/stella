@@ -1,18 +1,17 @@
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- saved from url=(0014)about:internet -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stella</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Exo:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@ricky0123/vad/dist/index.browser.js"></script>
-  <link rel="stylesheet" href="./index.css" />
-  <link rel="icon" type="image/svg+xml" href="/images/chat.svg">
-  <script src="https://cdn.jsdelivr.net/npm/@huggingface/transformers"></script>
-  <script src="https://unpkg.com/es-module-shims@1.7.0/dist/es-module-shims.js"></script>
+  <link href="./Stella_files/css2" rel="stylesheet">
+  <script src="./Stella_files/ort.js.download"></script>
+  <script src="./Stella_files/index.browser.js.download"></script>
+  <link rel="stylesheet" href="./Stella_files/index.css">
+  <link rel="icon" type="image/svg+xml" href="https://syntz.is-a.dev/images/chat.svg">
+  <script src="./Stella_files/transformers"></script>
+  <script src="./Stella_files/es-module-shims.js.download"></script>
   <script type="importmap">
     {
       "imports": {
@@ -24,8 +23,8 @@
 
 <body>
   <div class="background"></div>
-  <a href="/ai-selector" class="back-button">
-    <img src="/images/back.svg" class="back-icon" alt="Voltar">
+  <a href="https://syntz.is-a.dev/ai-selector" class="back-button">
+    <img src="./Stella_files/back.svg" class="back-icon" alt="Voltar">
     Voltar
   </a>
   <div class="chat-container">
@@ -51,16 +50,19 @@
     <textarea type="text" id="input" placeholder="Pergunte me qualquer coisa" size="8" rows="1"></textarea>
   </div>
 
-</body>
-<script src="./index.js"></script>
+  <script src="./Stella_files/index.js.download"></script>
   <script type="module">
     import { HfInference } from "@huggingface/inference";
     let hf;
 
     async function generateText() {
+      const token = document.getElementById("token").value.trim() || undefined;
+      hf = new HfInference(token);
+      
+      const model = 'mistralai/Mixtral-8x7B-Instruct-v0.1';
       const prompt = document.getElementById("input").value;
-      const output = await hf.textGeneration(prompt);
-      displayMessage(output.text);
+      const output = await hf.textGeneration({ model, inputs: prompt, parameters: { max_new_tokens: 250 } });
+      displayMessage(output.token.text);
     }
 
     function displayMessage(text) {
@@ -70,8 +72,6 @@
     }
 
     window.onload = async () => {
-      hf = new HfInference();
-
       document.getElementById("input").addEventListener("keypress", async (e) => {
         if (e.key === "Enter") {
           await generateText();
@@ -80,5 +80,4 @@
       });
     };
   </script>
-
-</html>
+</body></html>
