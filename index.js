@@ -9,10 +9,7 @@ function OnInput() {
   this.style.height = (this.scrollHeight) + "px";
 }
 
-
-
-// Um script javascript que usa o modelo Mixtral-8x7b do huggingface para gerar um poema
-const { AutoModelForCausalLM, AutoTokenizer } = require("@huggingface/transformers");
+import { HfInference } from "@huggingface/inference";
 
 // Carrega o modelo e o tokenizador
 const model = AutoModelForCausalLM.fromPretrained("mistralai/Mixtral-8x7B-v0.1");
@@ -25,10 +22,10 @@ const input = "<s> [INST] Escreva um poema sobre o amor [/INST]";
 const encodedInput = tokenizer.encode(input, { return_tensors: "tf" });
 
 // Gera o texto de saída
-const output = model.generate(encodedInput, { max_length: 50 });
+const output = model.generate(encodedInput, { max_length: 250 });
 
 // Decodifica o texto de saída
 const decodedOutput = tokenizer.decode(output[0], { skipSpecialTokens: true });
 
-// Imprime o texto de saída
-console.log(decodedOutput);
+// Mostra o texto de saída no elemento
+document.getElementById("chat-messages").innerHTML = decodedOutput;
