@@ -9,14 +9,11 @@ function OnInput() {
   this.style.height = (this.scrollHeight) + "px";
 }
 
-const huggingface_api_key = ${{secrets.HUGGINGFACE_KEY}}; // Acessa o segredo como uma variável de ambiente
-
 // Define the API URL
 const url = 'https://api-inference.huggingface.co/models/Mixtral-8x7b';
 
 // Define the headers
 const headers = {
-  'Authorization': `Bearer ${huggingface_api_key}`,
   'Content-Type': 'application/json'
 };
 
