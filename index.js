@@ -9,10 +9,7 @@ function OnInput() {
   this.style.height = (this.scrollHeight) + "px";
 }
 
-const axios = require("axios");
-
 const huggingface_api_key = ${{secrets.HUGGINGFACE_KEY}}; // Acessa o segredo como uma variável de ambiente
-axios.get(`https://api.example.com?key=${huggingface_api_key}`) // Usa o segredo em uma requisição
 
 // Define the API URL
 const url = 'https://api-inference.huggingface.co/models/Mixtral-8x7b';
