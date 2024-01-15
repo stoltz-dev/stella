@@ -49,13 +49,13 @@
     <textarea type="text" id="input" placeholder="Pergunte me qualquer coisa" size="8" rows="1"></textarea>
   </div>
 
-  <script src="./Stella_files/index.js.download"></script>
+  <script src="./index.js"></script>
   <script type="module">
     import { HfInference } from "@huggingface/inference";
     let hf;
 
     async function generateText() {
-      const token = document.getElementById("token").value.trim() || undefined;
+      const token = undefined;
       hf = new HfInference(token);
       
       const model = 'mistralai/Mixtral-8x7B-Instruct-v0.1';
