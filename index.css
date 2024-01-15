@@ -1,307 +1,325 @@
 body {
-  font-family: "Exo", sans-serif;
-  background: #070815;
-  color: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
-}
-
-a {
-  text-decoration: none;
-}
-
-textarea {
-  font-family: "Exo", sans-serif;
-  resize: none;
-  transition: height 0.2s ease;
-}
-
-.background {
-  background: linear-gradient(90deg, #0c0913 20.6px, transparent 1%) center,
-    linear-gradient(#0c0913 21.6px, transparent 1%) center, #a799cc;
-  background-size: 22px 22px;
-  background-position: -19px -19px, 0 0;
-  animation: breath 20s ease-in-out infinite;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
-.chat-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-}
-
-#chat-messages {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  z-index: 10;
-}
-
-.input-container {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-#input {
-  margin-right: 10px;
-  border: 2px solid rgb(242, 242, 242);
-  caret-color: rgb(242, 242, 242);
-  color: rgb(242, 242, 242);
-  -webkit-animation: inputVisibilityB 0.8s infinite alternate;
-  animation: inputVisibilityB 0.8s infinite alternate;
-  background: transparent;
-  bottom: 32px;
-  font-weight: 320;
-  min-height: 32px;
-  outline: none;
-  padding-inline: 8px;
-  padding-top: 5px;
-  position: absolute;
-  transition: border-color 0.1s, color 0.1s, text-shadow 0.1s,
-    -webkit-transform 0.3s;
-  transition: border-color 0.1s, color 0.1s, text-shadow 0.1s, transform 0.3s;
-  transition: border-color 0.1s, color 0.1s, text-shadow 0.1s, transform 0.3s,
-    -webkit-transform 0.3s;
-  width: 240px;
-  transition: all 0.2s ease-in-out;
-  box-sizing: border-box;
-  overflow: hidden;
-}
-
-#input:focus {
-  width: 300px;
-}
-
-/* Animation keyframes - you need to add prefixes */
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
+    font-family: "Exo", sans-serif;
+    background: #070815;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
   }
-  25% {
-    transform: rotate(360deg);
+  
+  a {
+    text-decoration: none;
   }
-  50% {
-    transform: rotate(180deg);
+  
+  textarea {
+    font-family: "Exo", sans-serif;
+    resize: none;
+    transition: height 0.2s ease;
   }
-  75% {
-    transform: rotate(360deg);
+  
+  .background {
+    background: linear-gradient(90deg, #0c0913 20.6px, transparent 1%) center,
+      linear-gradient(#0c0913 21.6px, transparent 1%) center, #a799cc;
+    background-size: 22px 22px;
+    background-position: -19px -19px, 0 0;
+    animation: breath 20s ease-in-out infinite;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
-  100% {
-    transform: rotate(0deg);
+  
+  .chat-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
   }
-}
-
-@keyframes spinthick {
-  from {
-    transform: rotate(0deg);
+  
+  #chat-messages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 10;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .input-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
   }
-}
-
-@keyframes blink {
-  0% {
-    opacity: 0.8;
+  
+  #input {
+    margin-right: 10px;
+    border: 2px solid rgb(242, 242, 242);
+    caret-color: rgb(242, 242, 242);
+    color: rgb(242, 242, 242);
+    -webkit-animation: inputVisibilityB 0.8s infinite alternate;
+    animation: inputVisibilityB 0.8s infinite alternate;
+    background: transparent;
+    bottom: 32px;
+    font-weight: 320;
+    min-height: 32px;
+    outline: none;
+    padding-inline: 8px;
+    padding-top: 5px;
+    position: absolute;
+    transition: border-color 0.1s, color 0.1s, text-shadow 0.1s,
+      -webkit-transform 0.3s;
+    transition: border-color 0.1s, color 0.1s, text-shadow 0.1s, transform 0.3s;
+    transition: border-color 0.1s, color 0.1s, text-shadow 0.1s, transform 0.3s,
+      -webkit-transform 0.3s;
+    width: 240px;
+    transition: all 0.2s ease-in-out;
+    box-sizing: border-box;
+    overflow: hidden;
+    z-index: 20;
   }
-  50% {
+  
+  #input:focus {
+    width: 300px; 
+  }
+  
+  /* Animation keyframes - you need to add prefixes */
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    25% {
+      transform: rotate(360deg);
+    }
+    50% {
+      transform: rotate(180deg);
+    }
+    75% {
+      transform: rotate(360deg);
+    }
+    100% {
+      transform: rotate(0deg);
+    }
+  }
+  
+  @keyframes spinthick {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes blink {
+    0% {
+      opacity: 0.8;
+    }
+    50% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 0.8;
+    }
+  }
+  
+  @keyframes glow {
+    0% {
+      box-shadow: 0px 0px 20px 4px #338ec2;
+    }
+    100% {
+      box-shadow: 0px 0px 20px 4px #bb9026;
+    }
+  }
+  
+  @keyframes reverseGlow {
+    0% {
+      box-shadow: 0px 0px 20px 4px #bb9026;
+    }
+    100% {
+      box-shadow: 0px 0px 20px 4px #338ec2;
+    }
+  }
+  
+  /* Loading animation container */
+  .loading {
+    position: fixed;
+    top: 50px;
+    right: 50px;
+    width: 50px;
+    height: 50px;
+    margin: -14px 0 0 -14px;
+    transition: top 0.2s linear;
+  }
+  
+  /* Spinning circle (inner circle) */
+  .loading .maskedCircle {
+    width: 28px;
+    height: 28px;
+    border-radius: 20px;
+    animation: blink 1s infinite linear;
+    border: 5px solid #43d5ff;
+    box-shadow: 0px 0px 20px 4px #338ec2;
+    transition: all 0.2s linear;
+  }
+  
+  @keyframes color {
+    from {
+      border: 5px solid #43d5ff;
+    }
+    to {
+      border: 5px solid #eeda53;
+    }
+  }
+  
+  @keyframes reverseColor {
+    from {
+      border: 5px solid #eeda53;
+    }
+    to {
+      border: 5px solid #43d5ff;
+    }
+  }
+  
+  /* Spinning circle mask */
+  .loading .mask {
+    width: 42px;
+    height: 42px;
+  }
+  
+  /* Spinner */
+  .loading .spinner {
+    position: absolute;
+    left: 1px;
+    top: 1px;
+    width: 38px;
+    height: 38px;
+  }
+  
+  .spinline {
+    position: fixed;
+    top: 52px;
+    right: 60px;
+    width: 38px;
+    height: 6px;
+    background: black;
     opacity: 0.5;
+    border-radius: 6px;
+    box-shadow: 0 0 8px 2px;
+    animation: spin 12s infinite reverse;
+    color: black;
   }
-  100% {
-    opacity: 0.8;
+  .spinline2 {
+    position: fixed;
+    top: 52px;
+    right: 60px;
+    width: 38px;
+    height: 10px;
+    background: black;
+    animation: spinthick 4s infinite reverse;
+    opacity: 0.5;
+    border-radius: 6px;
+    box-shadow: 0 0 15px 5px;
+    color: black;
   }
-}
-
-@keyframes glow {
-  0% {
-    box-shadow: 0px 0px 20px 4px #338ec2;
+  .spinline3 {
+    position: fixed;
+    top: 52px;
+    right: 60px;
+    width: 36px;
+    height: 6px;
+    background: black;
+    animation: spinthick 2s infinite reverse;
+    animation-delay: 1s;
+    opacity: 0.5;
+    border-radius: 6px;
+    box-shadow: 0 0 20px 6px;
+    color: black;
   }
-  100% {
-    box-shadow: 0px 0px 20px 4px #bb9026;
+  
+  #message {
+    animation: fadeIn 0.5s ease-in-out forwards;
+    transition: all 0.25s ease-in-out;
+    z-index: 10;
+    max-width: 60%;
   }
-}
-
-@keyframes reverseGlow {
-  0% {
-    box-shadow: 0px 0px 20px 4px #bb9026;
+  
+  #message span {
+    animation: fadeIn 0.5s ease-in-out forwards;
+    transition: all 0.25s ease-in-out;
   }
-  100% {
-    box-shadow: 0px 0px 20px 4px #338ec2;
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+  
+    to {
+      opacity: 1;
+    }
   }
-}
-
-/* Loading animation container */
-.loading {
-  position: fixed;
-  top: 50px;
-  right: 50px;
-  width: 50px;
-  height: 50px;
-  margin: -14px 0 0 -14px;
-  transition: top 0.2s linear;
-}
-
-/* Spinning circle (inner circle) */
-.loading .maskedCircle {
-  width: 28px;
-  height: 28px;
-  border-radius: 20px;
-  animation: blink 1s infinite linear;
-  border: 5px solid #43d5ff;
-  box-shadow: 0px 0px 20px 4px #338ec2;
-  transition: all 0.2s linear;
-}
-
-@keyframes color {
-  from {
-    border: 5px solid #43d5ff;
+  
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+    }
+  
+    to {
+      opacity: 0;
+    }
   }
-  to {
-    border: 5px solid #eeda53;
+  
+  @keyframes breath {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+    100% {
+      transform: scale(1);
+    }
   }
-}
-
-@keyframes reverseColor {
-  from {
-    border: 5px solid #eeda53;
+  
+  /* Código CSS existente omitido por simplicidade */
+  
+  /* Estilos para o botão de voltar */
+  .back-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
   }
-  to {
-    border: 5px solid #43d5ff;
+  
+  .back-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    fill: white;
   }
-}
-
-/* Spinning circle mask */
-.loading .mask {
-  width: 42px;
-  height: 42px;
-}
-
-/* Spinner */
-.loading .spinner {
-  position: absolute;
-  left: 1px;
-  top: 1px;
-  width: 38px;
-  height: 38px;
-}
-
-.spinline {
-  position: fixed;
-  top: 52px;
-  right: 60px;
-  width: 38px;
-  height: 6px;
-  background: black;
-  opacity: 0.5;
-  border-radius: 6px;
-  box-shadow: 0 0 8px 2px;
-  animation: spin 12s infinite reverse;
-  color: black;
-}
-.spinline2 {
-  position: fixed;
-  top: 52px;
-  right: 60px;
-  width: 38px;
-  height: 10px;
-  background: black;
-  animation: spinthick 4s infinite reverse;
-  opacity: 0.5;
-  border-radius: 6px;
-  box-shadow: 0 0 15px 5px;
-  color: black;
-}
-.spinline3 {
-  position: fixed;
-  top: 52px;
-  right: 60px;
-  width: 36px;
-  height: 6px;
-  background: black;
-  animation: spinthick 2s infinite reverse;
-  animation-delay: 1s;
-  opacity: 0.5;
-  border-radius: 6px;
-  box-shadow: 0 0 20px 6px;
-  color: black;
-}
-
-#message {
-  animation: fadeIn 0.5s ease-in-out;
-  transition: opacity 0.25s ease-in-out;
-  margin-inline: 10%;
-  position: absolute;
-}
-
-#message span {
-  animation: fadeIn 0.5s ease-in-out;
-  transition: opacity 0.25s ease-in-out;
-  margin-inline: 10%;
-  position: absolute;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
+  
+  .controls {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    z-index: 12;
   }
-
-  to {
-    opacity: 1;
+  
+  .controls button {
+    background-color: #f0f0f0; 
+    border: none;
+    color: #333;
+    padding: 5px 10px;
+    cursor: pointer;
   }
-}
-
-@keyframes fadeOut {
-  from {
-    opacity: 1;
+  
+  .controls button:hover {
+    background-color: #e0e0e0;
   }
-
-  to {
-    opacity: 0;
-  }
-}
-
-@keyframes breath {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.2);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-/* Código CSS existente omitido por simplicidade */
-
-/* Estilos para o botão de voltar */
-.back-button {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  padding: 10px;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-}
-
-.back-icon {
-  width: 20px;
-  height: 20px;
-  margin-right: 5px;
-  fill: white;
-}
