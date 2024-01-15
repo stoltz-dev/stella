@@ -78,6 +78,8 @@ async function run() {
       tokens.push(output);
       gen.innerHTML = tokens.join(" ");
     }
+
+		document.querySelector("#input").value = "";
   } catch (error) {
     console.error("Error generating text:", error);
   }
