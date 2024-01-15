@@ -53,5 +53,32 @@
 
 </body>
 <script src="./index.js"></script>
+  <script type="module">
+    import { HfInference } from "@huggingface/inference";
+    let hf;
+
+    async function generateText() {
+      const prompt = document.getElementById("input").value;
+      const output = await hf.textGeneration(prompt);
+      displayMessage(output.text);
+    }
+
+    function displayMessage(text) {
+      const message = document.createElement("div");
+      message.innerText = text;
+      document.getElementById("chat-messages").appendChild(message);
+    }
+
+    window.onload = async () => {
+      hf = new HfInference();
+
+      document.getElementById("input").addEventListener("keypress", async (e) => {
+        if (e.key === "Enter") {
+          await generateText();
+          e.target.value = "";
+        }
+      });
+    };
+  </script>
 
 </html>
