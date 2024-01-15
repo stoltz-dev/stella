@@ -58,7 +58,7 @@ async function run() {
   const message = "<s>[INST]{:}[/INST]";
   const textInput = document.querySelector("#input").value;
   const input = message.replace("{:}", textInput);
-  const token = document.querySelector("#token").value;
+  const token = undefined;
   const hf = new HfInference(token);
   const gen = document.querySelector("#generation");
 
