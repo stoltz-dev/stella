@@ -11,7 +11,7 @@ function OnInput() {
 
 
 // Carrega o modelo e o tokenizador
-const model = AutoModelForCausalLM.fromPretrained("mistralai/Mixtral-8x7B-v0.1");
+const model = AutoModelForCasualLM.fromPretrained("mistralai/Mixtral-8x7B-v0.1");
 const tokenizer = AutoTokenizer.fromPretrained("mistralai/Mixtral-8x7B-v0.1");
 
 // Define o texto de entrada com a instrução
