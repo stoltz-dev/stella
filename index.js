@@ -9,19 +9,18 @@ function OnInput() {
   this.style.height = (this.scrollHeight) + "px";
 }
 
-// Define the API URL
-const url = 'https://api-inference.huggingface.co/models/Mixtral-8x7b';
+await hf.textGeneration({
+  model: 'mistralai/Mixtral-8x7B-Instruct-v0.1',
+  inputs: 'The answer to the universe is'
+})
 
-// Define the headers
-const headers = {
-  'Content-Type': 'application/json'
-};
-
-// Define the payload
-const payload = {
-  inputs: "<s> [INST] Escreva um poema sobre o amor [/INST]"
-};
-
+for await (const output of hf.textGenerationStream({
+  model: "google/flan-t5-xxl",
+  inputs: 'repeat "one two three four"',
+  parameters: { max_new_tokens: 250 }
+})) {
+  console.log(output.token.text, output.generated_text);
+}
 // Make the POST request
 fetch(url, {
   method: 'POST',
@@ -34,7 +33,7 @@ fetch(url, {
   const outputText = data.generated_text;
 
   // Get the HTML element by its ID
-  const element = document.getElementById('YOUR_ELEMENT_ID');
+  const element = document.getElementById('chat-history');
 
   // Insert the output text into the HTML element
   element.textContent = outputText;
