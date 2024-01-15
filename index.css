@@ -238,14 +238,14 @@ textarea {
   color: black;
 }
 
-.message {
+#message {
   animation: fadeIn 0.5s ease-in-out;
   transition: opacity 0.25s ease-in-out;
   margin-inline: 10%;
   position: absolute;
 }
 
-.message span {
+#message span {
   animation: fadeIn 0.5s ease-in-out;
   transition: opacity 0.25s ease-in-out;
   margin-inline: 10%;
