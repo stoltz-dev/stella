@@ -12,7 +12,8 @@ jobs:
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        ENVIRONMENT_VARIABLES: 'HF_KEY=${{ secrets.HF_KEY }}'
         BRANCH: gh-pages
-        FOLDER: build
+        FOLDER: dist
         CLEAN: true
+        BUILD_SCRIPT: npm install && npm run build
+        ENVIRONMENT_VARIABLES: 'HF_KEY=${{ secrets.HF_KEY }}'
