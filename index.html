@@ -1,21 +1,26 @@
-<!-- saved from url=(0014)about:internet -->
-<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Stella</title>
 
-	<meta charset="UTF-8" />
-	<script src="https://cdn.tailwindcss.com"></script>
-	<!-- polyfill for firefox + import maps -->
-	<script src="https://unpkg.com/es-module-shims@1.7.0/dist/es-module-shims.js"></script>
-	<script type="importmap">
-		{
-			"imports": {
-				"@huggingface/inference": "https://cdn.jsdelivr.net/npm/@huggingface/inference@1.7.1/+esm"
-			}
-		}
-	</script>
+  <meta charset="UTF-8" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <!-- polyfill for firefox + import maps -->
+  <script src="https://unpkg.com/es-module-shims@1.7.0/dist/es-module-shims.js"></script>
+  <script type="importmap">
+          {
+              "imports": {
+                  "@huggingface/inference": "https://cdn.jsdelivr.net/npm/@huggingface/inference@1.7.1/+esm"
+              }
+          }
+      </script>
   <link rel="stylesheet" href="./index.css">
   <link rel="icon" type="image/svg+xml" href="https://syntz.is-a.dev/images/chat.svg">
 </head>
@@ -27,7 +32,9 @@
     Voltar
   </a>
   <div class="chat-container">
-    <div id="chat-messages"><div id="message"></div></div>
+    <div id="chat-messages">
+      <div id="message"></div>
+    </div>
     <div class="loading-container">
       <!-- Loading animation container -->
       <div class="loading">
@@ -51,53 +58,83 @@
 
   <script src="./index.js"></script>
   <script type="module">
-import { HfInference } from "https://cdn.skypack.dev/@huggingface/inference@2.6.4";
-async function* textStreamRes(hf, controller, input) {
-	let tokens = [];
-	for await (const output of hf.textGenerationStream(
-		{
-			model: "mistralai/Mixtral-8x7B-Instruct-v0.1",
-			inputs: "<s>[INST][/INST]",
-			parameters: { max_new_tokens: 1000 },
-		},
-		{
-			use_cache: false,
-			signal: controller.signal,
-		}
-	)) {
-		tokens.push(output);
-		yield tokens;
-	}
-}
+    import { HfInference } from "https://cdn.skypack.dev/@huggingface/inference@2.6.4";
 
-async function run() {
-  const controller = new AbortController();
-  const message = "<s>[INST]{:}[/INST]";
-  const textInput = document.querySelector("#input").value;
-  const input = message.replace("{:}", textInput);
-  const token = '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';
-  const hf = new HfInference(token);
-  const gen = document.querySelector("#message");
-
-        gen.innerHTML = "";
-        try {
-          for await (const tokens of textStreamRes(hf, controller, input)) {
-            const lastToken = tokens[tokens.length - 1];
-            const span = document.createElement("span");
-            span.innerText = lastToken.token.text;
-            gen.appendChild(span);
-          }
-        } catch (e) {
-          console.log(e);
+    let history = '';
+    async function* textStreamRes(hf, controller, input) {
+      let tokens = [];
+      for await (const output of hf.textGenerationStream(
+        {
+          model: "mistralai/Mixtral-8x7B-Instruct-v0.1",
+          inputs: input,
+          parameters: { max_new_tokens: 1000 },
+        },
+        {
+          use_cache: false,
+          signal: controller.signal,
         }
-}
+      )) {
+        tokens.push(output);
+        yield tokens;
+      }
+    }
 
-document.addEventListener("keydown", function (event) {
-  if (event.key === "Enter") {
-    run();
-  }
-});
+    async function run(rawInput) {
+      const controller = new AbortController();
+      const message = "[INST]{:}[/INST]";
+      const textInput = rawInput.value;
+      console.log(textInput);
+      const input = message.replace("{:}", textInput);
+      const token = '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';
+      const hf = new HfInference(token);
+      const gen = document.querySelector("#message");
+      history += input;
 
+      gen.innerHTML = "";
+      try {
+        for await (const tokens of textStreamRes(hf, controller, history)) {
+          const lastToken = tokens[tokens.length - 1];
+          const span = document.createElement("span");
+          const lastTokenFormated = lastToken.token.text;
+          span.innerText = lastTokenFormated.replace("</s>", "");
+          gen.appendChild(span);
+          history += lastToken.token.text;
+          // Get the message element
 
+          // Add a class to trigger the animation
+          span.classList.add("fadeIn");
+
+          // Alternatively, you can use a timeout to remove the class after a certain time
+          setTimeout(function () {
+            span.classList.remove("fadeIn");
+          }, 2000); // Remove the class after 2000 milliseconds (2 seconds)
+          
+          span.innerHTML = marked.parse(span.textContent);
+
+        }
+      } catch (e) {
+        console.log(e);
+      }
+    }
+
+    document.addEventListener("keydown", function (event) {
+      const isShiftPressed = event.shiftKey;
+      const isEnterPressed = event.key === "Enter";
+
+      if (isEnterPressed && !isShiftPressed) {
+        event.preventDefault();
+        run(document.querySelector("#input"));
+        document.querySelector("#input").value = "";
+      } else {
+
+      }
+      if (event.ctrlKey) {
+        console.log(history);
+      }
+
+    });
   </script>
-</body></html>
+  <script src="./index.js"></script>
+</body>
+
+</html>
