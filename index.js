@@ -9,22 +9,40 @@ function OnInput() {
   this.style.height = (this.scrollHeight) + "px";
 }
 
+const axios = require("axios");
 
-// Carrega o modelo e o tokenizador
-const model = AutoModelForCasualLM.fromPretrained("mistralai/Mixtral-8x7B-v0.1");
-const tokenizer = AutoTokenizer.fromPretrained("mistralai/Mixtral-8x7B-v0.1");
+const huggingface_api_key = process.env.HUGGINGFACE_KEY; // Acessa o segredo como uma variável de ambiente
+axios.get(`https://api.example.com?key=${huggingface_api_key}`) // Usa o segredo em uma requisição
 
-// Define o texto de entrada com a instrução
-const input = "<s> [INST] Escreva um poema sobre o amor [/INST]";
+// Define the API URL
+const url = 'https://api-inference.huggingface.co/models/Mixtral-8x7b';
 
-// Codifica o texto de entrada
-const encodedInput = tokenizer.encode(input, { return_tensors: "tf" });
+// Define the headers
+const headers = {
+  'Authorization': `Bearer ${huggingface_api_key}`,
+  'Content-Type': 'application/json'
+};
 
-// Gera o texto de saída
-const output = model.generate(encodedInput, { max_length: 250 });
+// Define the payload
+const payload = {
+  inputs: "<s> [INST] Escreva um poema sobre o amor [/INST]"
+};
 
-// Decodifica o texto de saída
-const decodedOutput = tokenizer.decode(output[0], { skipSpecialTokens: true });
+// Make the POST request
+fetch(url, {
+  method: 'POST',
+  headers: headers,
+  body: JSON.stringify(payload)
+})
+.then(response => response.json())
+.then(data => {
+  // Get the output text from the data
+  const outputText = data.generated_text;
 
-// Mostra o texto de saída no elemento
-document.getElementById("chat-messages").innerHTML = decodedOutput;
+  // Get the HTML element by its ID
+  const element = document.getElementById('YOUR_ELEMENT_ID');
+
+  // Insert the output text into the HTML element
+  element.textContent = outputText;
+})
+.catch(error => console.error('Error:', error));
