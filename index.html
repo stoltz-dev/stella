@@ -60,7 +60,7 @@ async function run() {
   const input = message.replace("{:}", textInput);
   const token = undefined;
   const hf = new HfInference(token);
-  const gen = document.querySelector("#generation");
+  const gen = document.querySelector("#chat-messages");
 
   try {
     let tokens = [];
