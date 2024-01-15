@@ -245,6 +245,13 @@ textarea {
   position: absolute;
 }
 
+.message span {
+  animation: fadeIn 0.5s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+  margin-inline: 10%;
+  position: absolute;
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
