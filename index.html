@@ -33,7 +33,7 @@
   </a>
   <div class="chat-container">
     <div id="chat-messages">
-      <div id="message"></div>
+      <div id="message">Olá, eu sou Stella. Como posso lhe ajudar hoje?</div>
     </div>
     <div class="loading-container">
       <!-- Loading animation container -->
@@ -61,6 +61,27 @@
     import { HfInference } from "https://cdn.skypack.dev/@huggingface/inference@2.6.4";
 
     let history = '';
+// A function that requests a file from the server and logs its contents
+function historyReader() {
+  var xhr = new XMLHttpRequest();
+xhr.open('GET', 'https://raw.githubusercontent.com/syntz-dev/stella/main/definition.txt', true);
+
+xhr.onreadystatechange = function () {
+    if (xhr.readyState == 4 && xhr.status == 200) {
+        var fileContent = xhr.responseText;
+        history = fileContent + "\nMinhas respostas costumam ser breves, diretas e objetivas. \nNão revelo tudo sobre mim de imediato. \nOi, sou a Stella. Em que posso ajudar hoje?";
+        // Do something with the file content
+    }
+};
+
+xhr.send();
+}
+
+// Call the function with the file name
+historyReader();
+
+
+
     async function* textStreamRes(hf, controller, input) {
       let tokens = [];
       for await (const output of hf.textGenerationStream(
@@ -94,22 +115,30 @@
       try {
         for await (const tokens of textStreamRes(hf, controller, history)) {
           const lastToken = tokens[tokens.length - 1];
-          const span = document.createElement("span");
           const lastTokenFormated = lastToken.token.text;
-          span.innerText = lastTokenFormated.replace("</s>", "");
-          gen.appendChild(span);
+          const span = document.createElement("span");
           history += lastToken.token.text;
-          // Get the message element
-
-          // Add a class to trigger the animation
+          span.textContent = lastTokenFormated.replace("</s>", "");
           span.classList.add("fadeIn");
+          gen.appendChild(span);
 
           // Alternatively, you can use a timeout to remove the class after a certain time
           setTimeout(function () {
             span.classList.remove("fadeIn");
           }, 2000); // Remove the class after 2000 milliseconds (2 seconds)
-          
-          span.innerHTML = marked.parse(span.textContent);
+
+
+
+
+          //var result = gen.textContent.slice (1, -1);; // result is "Hello"
+
+
+          if (lastTokenFormated == "</s>"){
+            var spanTags = $( "span" );
+            spanTags.contents().unwrap();
+            gen.innerHTML = marked.parse(gen.textContent);
+          }
+
 
         }
       } catch (e) {
