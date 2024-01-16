@@ -61,25 +61,48 @@
     import { HfInference } from "https://cdn.skypack.dev/@huggingface/inference@2.6.4";
 
     let history = '';
-// A function that requests a file from the server and logs its contents
-function historyReader() {
-  var xhr = new XMLHttpRequest();
-xhr.open('GET', 'https://raw.githubusercontent.com/syntz-dev/stella/main/definition.txt', true);
 
-xhr.onreadystatechange = function () {
-    if (xhr.readyState == 4 && xhr.status == 200) {
-        var fileContent = xhr.responseText;
-        history = fileContent + "\nMinhas respostas costumam ser breves, diretas e objetivas. \nNão revelo tudo sobre mim de imediato. \nOi, sou a Stella. Em que posso ajudar hoje?";
-        // Do something with the file content
+    
+
+    // A function that requests a file from the server and logs its contents
+    function historyReader(date) {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', 'https://raw.githubusercontent.com/syntz-dev/stella/main/definition.txt', true);
+
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+          var fileContent = xhr.responseText;
+          history = fileContent + `\nMinhas respostas costumam ser breves, diretas e objetivas. \nNão revelo tudo sobre mim de imediato. Hoje é ${date}\nOi, sou a Stella. Em que posso ajudar hoje?`;
+        }
+      };
+
+      xhr.send();
     }
-};
+    window.onload = function () {
+      const timeZone = 'America/Sao_Paulo'; // 'America/Sao_Paulo' corresponds to GMT-3
+      const locale = 'pt-BR';
 
-xhr.send();
-}
+      const currentDate = new Date();
+      const options = { timeZone, weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: false };
 
-// Call the function with the file name
-historyReader();
+      const formattedDate = new Intl.DateTimeFormat(locale, options).format(currentDate);
 
+      console.log(formattedDate);
+
+      historyReader(formattedDate);
+    }
+
+    function getRandomDuration(value1, value2) {
+      // Generate a random number between 0 (inclusive) and 1 (exclusive)
+      const randomValue = Math.random();
+
+      // Check if the random number is less than 0.2
+      if (randomValue < 0.2) {
+        return value1;
+      } else {
+        return value2;
+      }
+    }
 
 
     async function* textStreamRes(hf, controller, input) {
@@ -103,12 +126,12 @@ historyReader();
     async function run(rawInput) {
       const controller = new AbortController();
       const message = "[INST]{:}[/INST]";
-      const textInput = rawInput.value;
-      console.log(textInput);
-      const input = message.replace("{:}", textInput);
+      console.log(rawInput);
+      const input = message.replace("{:}", rawInput);
       const token = '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';
       const hf = new HfInference(token);
-      const gen = document.querySelector("#message");
+      let gen = document.querySelector("#message");
+      let loadingCircle = document.querySelector(".maskedCircle");
       history += input;
 
       gen.innerHTML = "";
@@ -116,27 +139,21 @@ historyReader();
         for await (const tokens of textStreamRes(hf, controller, history)) {
           const lastToken = tokens[tokens.length - 1];
           const lastTokenFormated = lastToken.token.text;
-          const span = document.createElement("span");
-          history += lastToken.token.text;
-          span.textContent = lastTokenFormated.replace("</s>", "");
-          span.classList.add("fadeIn");
-          gen.appendChild(span);
+          gen.textContent += lastTokenFormated.replace("</s>", "");
+          history += lastTokenFormated;
 
-          // Alternatively, you can use a timeout to remove the class after a certain time
-          setTimeout(function () {
-            span.classList.remove("fadeIn");
-          }, 2000); // Remove the class after 2000 milliseconds (2 seconds)
-
-
-
-
-          //var result = gen.textContent.slice (1, -1);; // result is "Hello"
-
-
-          if (lastTokenFormated == "</s>"){
-            var spanTags = $( "span" );
-            spanTags.contents().unwrap();
+          if (lastTokenFormated == "</s>") {
             gen.innerHTML = marked.parse(gen.textContent);
+            gen.style.animation = "fadeIn 0.5s ease-in-out forwards";
+            loadingCircle.style.animation = "reverseColor 1s linear forwards, reverseGlow 1s linear forwards, blink 1s infinite linear";
+          } else {
+            let blinkValue = getRandomDuration(0, 1);
+
+            loadingCircle.style.animation = `color 0.3s linear forwards, glow 0.3s linear forwards`;
+            loadingCircle.style.opacity = blinkValue;
+
+
+            loadingCircle.style.transition = "all 0.1s linear";
           }
 
 
@@ -152,8 +169,14 @@ historyReader();
 
       if (isEnterPressed && !isShiftPressed) {
         event.preventDefault();
-        run(document.querySelector("#input"));
+        const inputValue = document.querySelector("#input").value;
+        const messageElement = document.querySelector("#message");
+        messageElement.style.animation = "fadeOut 0.5s ease-in-out forwards";
         document.querySelector("#input").value = "";
+        setTimeout(() => {
+          run(inputValue);
+        }, 1000);
+
       } else {
 
       }
