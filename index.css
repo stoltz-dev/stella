@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2&display=swap');
+
 body {
-    font-family: "Exo", sans-serif;
+    font-family: "Exo 2", sans-serif;
     background: #070815;
     color: white;
     display: flex;
@@ -79,6 +81,12 @@ body {
     box-sizing: border-box;
     overflow: hidden;
     z-index: 20;
+    resize: none;
+    padding-bottom: 6px;
+  }
+
+  #input::placeholder {
+    text-align: center;
   }
   
   #input:focus {
@@ -240,15 +248,18 @@ body {
   }
   
   #message {
-    animation: fadeIn 0.5s ease-in-out forwards;
     transition: all 0.25s ease-in-out;
     z-index: 10;
     max-width: 60%;
   }
   
-  #message span {
-    animation: fadeIn 0.5s ease-in-out forwards;
+  #message * {
     transition: all 0.25s ease-in-out;
+  }
+
+  .fadeIn {
+    opacity: 0;
+    animation: fadeIn 0.5s ease-in-out forwards;
   }
   
   @keyframes fadeIn {
@@ -322,4 +333,16 @@ body {
   
   .controls button:hover {
     background-color: #e0e0e0;
+  }
+
+  ul {
+    padding-inline-start: 40px;
+  }
+
+  li {
+    list-style: disc;
+  }
+
+  p {
+    margin-bottom: 10px !important;
   }
