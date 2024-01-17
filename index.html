@@ -63,10 +63,6 @@
 
     let history = '';
 
-
-
-    const hf_key = process.env.HF_KEY
-
     // A function that requests a file from the server and logs its contents
     function historyReader(date) {
       var xhr = new XMLHttpRequest();
@@ -131,7 +127,7 @@
       const message = "[INST]{:}[/INST]";
       console.log(rawInput);
       const input = message.replace("{:}", rawInput);
-      const token = hf_key;
+      const token = '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';
       const hf = new HfInference(token);
       let gen = document.querySelector("#message");
       let loadingCircle = document.querySelector(".maskedCircle");
