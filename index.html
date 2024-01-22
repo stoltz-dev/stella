@@ -1,4 +1,3 @@
-
 <html lang="en">
 
 <head>
@@ -121,8 +120,14 @@
   <div id="overlay" class="overlay"></div>
   <div id="overlay2" class="overlay"></div>
 
-  <div id="settingsModal">
+  <div id="settingsModal" class="modals">
     <h1 id="settingsTitle">Configurações</h1>
+    <div id="closeSettingsModal">
+      <span aria-hidden="true"><a>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+          <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+        </svg>
+    </div> 
     <div id="ttsSettings">
       <div id="ttsSwitch">
         <div class="checkbox-wrapper-51">
@@ -140,9 +145,10 @@
         <p>TTS (Texto para fala)</p>
       </div>
     </div>
+    <a class="btn_" id="cleanHistory">Limpar histórico</a>
   </div>
 
-  <div id="ttsModalPassword">
+  <div id="ttsModalPassword" class="modals">
   
     <div id="closePasswordModal">
       <span aria-hidden="true"><a>
@@ -153,9 +159,7 @@
     <div class="ttsModalPasswordContainer">
       <p>Senha para desbloquer o TTS:</p>
       <input type="password" id="ttsPassword" placeholder="Senha">
-      <div class="ttsButtons">
-        <a class="ttsEnableButton" id="confirmPassword">Confirmar</a>
-      </div>
+      <a class="btn_" id="confirmPassword">Confirmar</a>
     </div>
   </div>
 
