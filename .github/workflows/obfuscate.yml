@@ -9,7 +9,9 @@ jobs:
       - name: Install JavaScript Obfuscator
         run: npm install --save-dev javascript-obfuscator
       - name: Obfuscate JavaScript files
-        run: npx javascript-obfuscator ./path-to-your-javascript-files --output ./path-to-output-obfuscated-files
+        run: npx javascript-obfuscator ./index.js --output ./index.js
+      - name: Obfuscate JavaScript files again
+        run: npx javascript-obfuscator ./module.js --output ./module.js
       - name: Commit and push obfuscated files
         run: |
           git config --global user.name "Your Name"
