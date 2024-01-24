@@ -46,7 +46,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     z-index: 10;
+    max-height: 70%;
   }
   
   .input-container {
@@ -81,6 +83,11 @@ body {
     z-index: 20;
     resize: none;
     padding-bottom: 10px;
+  }
+
+  #input span{
+    color: white !important;
+    font-weight: 320;
   }
 
   #input::placeholder {
@@ -250,6 +257,8 @@ body {
     transition: all 0.25s ease-in-out;
     z-index: 10;
     max-width: 60%;
+    max-height: 100%;
+    overflow: scroll;
   }
   
   #message * {
@@ -342,6 +351,10 @@ body {
   
   #ttsModalPassword {
     width: 350px !important;
+  }
+
+  #message {
+    max-width: 80%;
   }
 }
 
@@ -791,4 +804,17 @@ cursor:pointer;
 .modals {
   background: rgb(13, 16, 23);
   border: 1px solid white;
+}
+
+[contenteditable=true]:empty:before {
+  content: attr(placeholder);
+  color: #999;
+  position: relative;
+  top: 0px;
+  /*
+    For IE only, do this:
+    position: absolute;
+    top: 10px;
+    */
+  cursor: text;
 }

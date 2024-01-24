@@ -6,17 +6,16 @@ window.onload = function(){
     chat_message.innerHTML = marked.parse(chat_message.textContent);
 }
 
-// Dynamic Input
-const tx = document.getElementsByTagName("textarea");
-for (let i = 0; i < tx.length; i++) {
-  tx[i].setAttribute("style", "height:" + (tx[i].scrollHeight) + "px;overflow-y:hidden;");
-  tx[i].addEventListener("input", OnInput, false);
+function inputDivDynamic(){
+  const inputDiv = document.querySelector("#input");
+
+  if (inputDiv.children.length === 1 && inputDiv.children[0].tagName === "BR") {
+    inputDiv.innerHTML = '';
+  }
 }
 
-function OnInput() {
-  this.style.height = 0;
-  this.style.height = (this.scrollHeight) + "px";
-}
+$("#input").on("focus", inputDivDynamic);
+$("#input").on("blur", inputDivDynamic);
 
 /* Modal */
 

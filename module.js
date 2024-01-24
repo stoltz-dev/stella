@@ -19,7 +19,7 @@ var formattedDate;
 // A function that requests a file from the server and logs its contents
 function historyReader(date) {
   var xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://raw.githubusercontent.com/syntz-dev/stella/main/definition.txt', true);
+  xhr.open('GET', './definition.txt', true);
 
   xhr.onreadystatechange = function () {
     if (xhr.readyState == 4 && xhr.status == 200) {
@@ -38,8 +38,6 @@ window.onload = function () {
   const options = { timeZone, weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', hour12: false };
 
   formattedDate = new Intl.DateTimeFormat(locale, options).format(currentDate);
-
-  console.log(formattedDate);
 
   historyReader(formattedDate);
 }
@@ -86,7 +84,6 @@ $("#confirmPassword").bind("click", confirmPassword);
 async function run(rawInput) {
   const controller = new AbortController();
   const message = "[INST]{:}[/INST]";
-  console.log(rawInput);
   const input = message.replace("{:}", rawInput);
   const token = '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';
   const hf = new HfInference(token);
@@ -112,8 +109,7 @@ async function run(rawInput) {
             let text = '';
             let text2 = '';
             text = gen.textContent.replace('██████ ████', "--");
-            text2 = text.replace('████', '--');
-            console.log("texto para tts: " + text2);   
+            text2 = text.replace('████', '--'); 
             tts(text2, true);
         }else{
           loadingCircle.style.animation = "reverseColor 1s linear forwards, reverseGlow 1s linear forwards, blink 1s infinite linear";
@@ -133,6 +129,7 @@ async function run(rawInput) {
 
     }
   } catch (e) {
+    errorWarning("Um erro ocorreu!", e);
     console.log(e);
   }
 }
