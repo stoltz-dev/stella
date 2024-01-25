@@ -151,16 +151,22 @@ document.addEventListener("keydown", function (event) {
 
   if (isEnterPressed && !isShiftPressed && passwordModalElement.style.display != 'block' && settingsModalElement.style.display != 'block') {
     event.preventDefault();
-    const inputValue = document.querySelector("#input").value;
-    if (inputValue == null || inputValue == ''){
+    const inputElement = document.querySelector("#input");
+    if (!inputElement.innerText.trim()){
         alertWarning("Input vazio!", "Insira pelo menos um caractere.");
     }else{
         const messageElement = document.querySelector("#message");
         messageElement.style.animation = "fadeOut 0.5s ease-in-out forwards";
-        document.querySelector("#input").value = "";
+        var inputValue = inputElement.innerText.trim();
+        console.log(inputValue);
+
+
+        inputElement.innerHTML = "";
+
+
         setTimeout(() => {
-        run(inputValue);
-        }, 1000);
+          run(inputValue);
+        }, 500);
     }
   } else if (isEnterPressed && passwordModalElement.style.display == 'block' && settingsModalElement.style.display != 'block'){
     event.preventDefault();
