@@ -139,6 +139,7 @@ $('#cleanHistory').bind('click', function(){
   const messageElement = document.querySelector('#message');
   messageElement.textContent = "Olá, eu sou Stella. Como posso lhe ajudar hoje?";
   infoWarning("Chat resetado!", "O histórico dessa conversa foi limpo!");
+  messageElement.style.animation = "fadeOut 0.5s ease-in-out forwards";
 });
 
 
