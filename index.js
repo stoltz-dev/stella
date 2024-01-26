@@ -14,6 +14,16 @@ function inputDivDynamic(){
   }
 }
 
+let allEditableDivs = document.querySelectorAll('div[contenteditable="true"]');
+
+[].forEach.call(allEditableDivs, function (el) {
+  el.addEventListener('paste', function(e) {
+    e.preventDefault();
+    var text = e.clipboardData.getData("text/plain");
+    document.execCommand("insertHTML", false, text);
+  }, false);
+});
+
 $("#input").on("focus", inputDivDynamic);
 $("#input").on("blur", inputDivDynamic);
 
