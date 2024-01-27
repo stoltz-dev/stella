@@ -18,13 +18,7 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.PAT }}
-          branch: 'main'
+          repository: stella/main
           directory: '.'
-      - name: Commit and push obfuscated files
-        run: |
-          git config --global user.name "Your Name"
-          git config --global user.email "youremail@example.com"
-          git add index.js
-          git commit -m "Obfuscated JavaScript files"
-          git push https://${{ secrets.PAT }}@github.com/syntz-dev/stella main --force
+          force: true
 
