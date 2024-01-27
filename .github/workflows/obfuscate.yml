@@ -10,7 +10,7 @@ jobs:
       with:
         ref: ${{ github.head_ref }}
         fetch-depth: 0
-        token: ${{ secrets.PAT_TOKEN }}
+        token: ${{ secrets.PAT }}
     - name: Install JavaScript Obfuscator
       run: npm install --save-dev javascript-obfuscator
     - name: Obfuscate JavaScript files
@@ -25,7 +25,7 @@ jobs:
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
-        github_token: ${{ secrets.PAT_TOKEN }}
+        github_token: ${{ secrets.PAT }}
         repository: syntz-dev/stella
         force: true
 
