@@ -21,7 +21,9 @@ jobs:
       run: |
         git config --local user.email "test@test.com"
         git config --local user.name "Test"
-        git commit -a -m "Add changes"
+        git add index.js
+        git add module.js
+        git commit -m "Add changes"
     - name: Push changes
       uses: ad-m/github-push-action@master
       with:
