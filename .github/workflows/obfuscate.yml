@@ -19,7 +19,7 @@ jobs:
         with:
           github_token: ${{ secrets.PAT }}
           repository: 'syntz-dev/stella'
-          branches: 'main'
+          branch: 'main'
           directory: '.'
           force: true
 
