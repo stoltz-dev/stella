@@ -3,27 +3,29 @@ on: push
 permissions:
   contents: write
 jobs:
-  obfuscate_code:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code from code branch
-        uses: actions/checkout@v3
-        with:
-          ref: ${{ github.head_ref }}
-          fetch-depth: 0
-          token: ${{ secrets.PAT_TOKEN }}
-      - name: Install JavaScript Obfuscator
-        run: npm install --save-dev javascript-obfuscator
-      - name: Obfuscate JavaScript files
-        run: npx javascript-obfuscator ./index.js --output ./index.js
-      - name: Obfuscate JavaScript files again
-        run: npx javascript-obfuscator ./module.js --output ./module.js
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.PAT }}
-          repository: 'syntz-dev/stella'
-          branch: 'main'
-          directory: '.'
-          force: true
+    - uses: actions/checkout@v3
+      with:
+        ref: ${{ github.head_ref }}
+        fetch-depth: 0
+        token: ${{ secrets.PAT_TOKEN }}
+    - name: Install JavaScript Obfuscator
+      run: npm install --save-dev javascript-obfuscator
+    - name: Obfuscate JavaScript files
+      run: npx javascript-obfuscator ./index.js --output ./index.js
+    - name: Obfuscate JavaScript files again
+      run: npx javascript-obfuscator ./module.js --output ./module.js
+    - name: Commit files
+      run: |
+        git config --local user.email "test@test.com"
+        git config --local user.name "Test"
+        git commit -a -m "Add changes"
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.PAT_TOKEN }}
+        repository: Test/test
+        force: true
 
