@@ -1,5 +1,5 @@
-.github/
-node_modules/
-package-lock.json
-package.json
-.gitignore
+./.github/
+./node_modules/
+./package-lock.json
+./package.json
+./.gitignore
