@@ -1,7 +1,7 @@
 name: Obfuscate JavaScript code
 on: push
 permissions:
-  contents: write-all
+  contents: write
 jobs:
   obfuscate_code:
     runs-on: ubuntu-latest
