@@ -18,4 +18,4 @@ jobs:
           git config --global user.email "youremail@example.com"
           git add -A
           git commit -m "Obfuscated JavaScript files"
-          git push stella main
+          git push https://github.com/syntz-dev/stella.git main
