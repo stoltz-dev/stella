@@ -6,6 +6,8 @@ jobs:
     steps:
       - name: Checkout code from code branch
         uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.PAT }}
       - name: Install JavaScript Obfuscator
         run: npm install --save-dev javascript-obfuscator
       - name: Obfuscate JavaScript files
@@ -18,4 +20,4 @@ jobs:
           git config --global user.email "youremail@example.com"
           git add -A
           git commit -m "Obfuscated JavaScript files"
-          git push https://github.com/syntz-dev/stella main --force
+          git push https://syntz-dev:${{ secrets.PAT }}@github.com/syntz-dev/stella main --force
