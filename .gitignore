@@ -1,5 +1,14 @@
-./.github/
-./node_modules/
-./package-lock.json
-./package.json
-./.gitignore
+# Ignore package-lock.json
+package-lock.json
+
+# Ignore package.json
+package.json
+
+# Ignore .gitignore
+.gitignore
+
+# Ignore .github directory
+.github/
+
+# Ignore node_modules directory
+node_modules/
