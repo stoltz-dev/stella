@@ -14,7 +14,6 @@ jobs:
         run: npx javascript-obfuscator ./module.js --output ./module.js
       - name: Commit and push obfuscated files
         run: |
-          git config --unset-all http.https://github.com/.extraheader
           git config --global user.name "Your Name"
           git config --global user.email "youremail@example.com"
           git add -A
