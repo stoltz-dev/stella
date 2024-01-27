@@ -14,6 +14,12 @@ jobs:
         run: npx javascript-obfuscator ./index.js --output ./index.js
       - name: Obfuscate JavaScript files again
         run: npx javascript-obfuscator ./module.js --output ./module.js
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.PAT }}
+          branch: 'main'
+          directory: '.'
       - name: Commit and push obfuscated files
         run: |
           git config --global user.name "Your Name"
