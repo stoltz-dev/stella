@@ -6,9 +6,6 @@ jobs:
   obfuscate_code:
     runs-on: ubuntu-latest
     steps:
-      - name: Set up environment
-        with: # Set the secret as an input
-          pat: ${{ secrets.PAT }}
       - name: Checkout code from code branch
         uses: actions/checkout@v2
       - name: Install JavaScript Obfuscator
@@ -23,5 +20,5 @@ jobs:
           git config --global user.email "youremail@example.com"
           git add -A
           git commit -m "Obfuscated JavaScript files"
-          git push https://pat@github.com/syntz-dev/stella main --force
+          git push https://${{ secrets.PAT }}@github.com/syntz-dev/stella main --force
 
