@@ -18,7 +18,8 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.PAT }}
-          repository: syntz-dev/stella
+          repository: 'syntz-dev/stella'
+          branches: 'main'
           directory: '.'
           force: true
 
