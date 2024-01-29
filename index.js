@@ -187,7 +187,7 @@ function setVolume(audioElement){
 }
 
 const XI_API_KEY = 'f289db5d52aee96edb192f8afc841cfd';
-const VOICE_ID = 'ATQd4vxdAX9JLua70mY3';
+const VOICE_ID = 'CaTHjV84MxieZtIYEDMt';
 
 export function tts(text, enable) {
   if (enable){
