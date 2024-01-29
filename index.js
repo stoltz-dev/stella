@@ -1,1 +1,376 @@
-var a0_0x34c031=a0_0x592a;function a0_0x279f(){var _0x172ce5=['*:not(#settingsModal,\x20#settingsModal\x20*,\x20#ttsModalPassword,\x20ttsModalPassword\x20*,\x20body,\x20head,\x20html,\x20#overlay,\x20#overlay2)','3759xkUDuJ','TTS\x20desativado!','3970gJODxx','querySelectorAll','O\x20TTS\x20está\x20ativado\x20agora.','strong','fadeIn\x200.5s\x20ease-in-out\x20forwards','block','clipboardData','length','userSelect','1324UMsSpj','blur','fadeOut\x200.5s\x20ease-in-out\x20forwards','#successfulWarning','16uhaBNE','.ttsCheckbox','prop','animation','textContent','click','#settingsModal\x20*,\x20#settingsModal','onload','.loading-container','https://api.elevenlabs.io/v1/text-to-speech/','POST','shift','*:not(#ttsModalPassword,\x20#ttsModalPassword\x20*,\x20body,\x20head,\x20html,\x20#overlay,\x20#overlay2)','stringify','body','#confirmPassword','#overlay','display','#closeErrorWarning','innerHTML','f289db5d52aee96edb192f8afc841cfd','1128nKIwaz','1382TAJCeE','465492ejATaW','currentTime','querySelector','push','focus','opacity','#closeSuccessfulWarning','@Rafafa2105','volume','11905VzQPSQ','25311WJFuys','.maskedCircle','#message','getData','661446bakigs','audio/mpeg','children','checked','toFixed','5715oDSnYE','addEventListener','1572NbDmGD','428351CWtvQb','#closePasswordModal','paste','lastChild','execCommand','forEach','#overlay2','style','#closeInfoWarning','reverseColor\x201s\x20linear\x20forwards,\x20reverseGlow\x201s\x20linear\x20forwards,\x20blink\x201s\x20infinite\x20linear','HTTP\x20error!\x20status:\x20','none','386LkebPU','application/json','text/plain','ATQd4vxdAX9JLua70mY3','timeupdate','bind','485779jiGuVd','1329813erROxZ','#input','fadeOut\x200.25s\x20ease-in-out\x20forwards','#closeAlertWarning','.alert','167412alGpSN','duration','value','tagName','pointerEvents','fadeIn\x200.25s\x20ease-in-out\x20forwards','#alertWarning','play'];a0_0x279f=function(){return _0x172ce5;};return a0_0x279f();}(function(_0x42cddf,_0x5ab657){var _0x570f29=a0_0x592a,_0x18ad51=_0x42cddf();while(!![]){try{var _0x439cef=-parseInt(_0x570f29(0x74))/0x1*(parseInt(_0x570f29(0x81))/0x2)+parseInt(_0x570f29(0x8d))/0x3+parseInt(_0x570f29(0xbc))/0x4+parseInt(_0x570f29(0xc5))/0x5*(-parseInt(_0x570f29(0xba))/0x6)+parseInt(_0x570f29(0x87))/0x7*(parseInt(_0x570f29(0xa5))/0x8)+-parseInt(_0x570f29(0x88))/0x9+parseInt(_0x570f29(0x98))/0xa*(parseInt(_0x570f29(0xc6))/0xb);if(_0x439cef===_0x5ab657)break;else _0x18ad51['push'](_0x18ad51['shift']());}catch(_0x46c785){_0x18ad51['push'](_0x18ad51['shift']());}}}(a0_0x279f,0x4f837));function a0_0x3e6f(_0x1de392,_0x2dd7bd){var _0x3017f0=a0_0x5110();return a0_0x3e6f=function(_0xacc886,_0x392c0d){_0xacc886=_0xacc886-0x12d;var _0x491dc2=_0x3017f0[_0xacc886];return _0x491dc2;},a0_0x3e6f(_0x1de392,_0x2dd7bd);}var a0_0xb4455=a0_0x3e6f;(function(_0x4bd972,_0x2f2561){var _0x710606=a0_0x592a,_0x3b471d=a0_0x3e6f,_0x38c30b=_0x4bd972();while(!![]){try{var _0x36fb62=-parseInt(_0x3b471d(0x17c))/0x1+-parseInt(_0x3b471d(0x144))/0x2*(parseInt(_0x3b471d(0x13e))/0x3)+-parseInt(_0x3b471d(0x159))/0x4*(parseInt(_0x3b471d(0x13a))/0x5)+parseInt(_0x3b471d(0x14d))/0x6+parseInt(_0x3b471d(0x151))/0x7*(-parseInt(_0x3b471d(0x14b))/0x8)+parseInt(_0x3b471d(0x12d))/0x9+parseInt(_0x3b471d(0x17e))/0xa;if(_0x36fb62===_0x2f2561)break;else _0x38c30b[_0x710606(0xbf)](_0x38c30b[_0x710606(0xb0)]());}catch(_0x4e308f){_0x38c30b[_0x710606(0xbf)](_0x38c30b[_0x710606(0xb0)]());}}}(a0_0x5110,0x8a706));export let enableTTS=![];window[a0_0xb4455(0x149)]=function(){var _0x56dedb=a0_0x592a,_0x1da774=a0_0xb4455;const _0x4be9be=document[_0x1da774(0x175)](_0x1da774(0x17f));_0x4be9be[_0x1da774(0x182)]=marked[_0x1da774(0x168)](_0x4be9be[_0x56dedb(0xa9)]);};function inputDivDynamic(){var _0xb332c4=a0_0x592a,_0x3bfab9=a0_0xb4455;const _0x3f3ed7=document[_0x3bfab9(0x175)](_0x3bfab9(0x152));_0x3f3ed7[_0xb332c4(0x6f)][_0x3bfab9(0x158)]===0x1&&_0x3f3ed7[_0x3bfab9(0x137)][0x0][_0x3bfab9(0x12e)]==='BR'&&(_0x3f3ed7[_0xb332c4(0xb8)]='');}let allEditableDivs=document[a0_0xb4455(0x140)](a0_0xb4455(0x160));[][a0_0x34c031(0x7a)][a0_0xb4455(0x171)](allEditableDivs,function(_0x44ede1){var _0x32f87b=a0_0x34c031,_0x59c49c=a0_0xb4455;_0x44ede1[_0x59c49c(0x147)](_0x32f87b(0x77),function(_0x3a8b2b){var _0x532d32=_0x32f87b,_0x3ef609=_0x59c49c;_0x3a8b2b['preventDefault']();var _0x2fda08=_0x3a8b2b[_0x532d32(0x9e)][_0x3ef609(0x15a)](_0x3ef609(0x13d));document[_0x3ef609(0x134)](_0x3ef609(0x156),![],_0x2fda08);},![]);}),$(a0_0xb4455(0x152))['on'](a0_0x34c031(0xc0),inputDivDynamic),$(a0_0xb4455(0x152))['on'](a0_0xb4455(0x16a),inputDivDynamic),$(a0_0xb4455(0x17d))[a0_0xb4455(0x130)](a0_0xb4455(0x169),function(){settingsModal(!![]);}),$('#disableTTS')[a0_0xb4455(0x130)](a0_0xb4455(0x169),function(){settingsModal(![]);}),$(a0_0xb4455(0x157))[a0_0xb4455(0x169)](function(){var _0x2516b9=a0_0x34c031,_0x1d76a5=a0_0xb4455;enableTTS&&$(this)[_0x1d76a5(0x165)](_0x1d76a5(0x155))==![]?(infoWarning(_0x1d76a5(0x176),_0x1d76a5(0x164)),enableTTS=![],$(_0x2516b9(0xa6))[_0x1d76a5(0x165)](_0x1d76a5(0x155),![])):passwordModal(!![]);}),$(a0_0x34c031(0xb4))[a0_0xb4455(0x130)](a0_0xb4455(0x169),function(){var _0x396aa7=confirmPassword();_0x396aa7==!![]&&passwordModal(![]);}),$(a0_0xb4455(0x16d))[a0_0xb4455(0x130)](a0_0x34c031(0xaa),function(){passwordModal(![]);}),$(a0_0xb4455(0x15c))[a0_0xb4455(0x130)](a0_0xb4455(0x169),function(){settingsModal(![]),passwordModal(![]);});export function settingsModal(_0x29aa4c){var _0xbd905f=a0_0x34c031,_0x248b95=a0_0xb4455;const _0x25ad6d=document[_0xbd905f(0xbe)](_0x248b95(0x13f)),_0x484d10=document[_0x248b95(0x175)](_0x248b95(0x181));if(_0x29aa4c){_0x484d10[_0x248b95(0x166)][_0x248b95(0x177)]=_0xbd905f(0x9d),_0x25ad6d[_0x248b95(0x166)][_0x248b95(0x177)]=_0x248b95(0x132),_0x25ad6d[_0x248b95(0x166)][_0x248b95(0x13b)]=_0xbd905f(0x92),setTimeout(()=>{var _0x4907f0=_0x248b95;_0x25ad6d[_0x4907f0(0x166)][_0x4907f0(0x161)]='1';},0x104);var _0xde5bb7=document['querySelectorAll'](_0xbd905f(0x95));_0xde5bb7[_0xbd905f(0x7a)](function(_0x3faa46){var _0x388690=_0xbd905f,_0xf36c7f=_0x248b95;_0x3faa46[_0xf36c7f(0x166)]['pointerEvents']=_0x388690(0x80),_0x3faa46[_0xf36c7f(0x166)][_0xf36c7f(0x179)]=_0xf36c7f(0x15e);});}else{_0x484d10[_0x248b95(0x166)][_0x248b95(0x177)]=_0x248b95(0x15e);var _0xde5bb7=document[_0x248b95(0x140)](_0x248b95(0x173));_0xde5bb7[_0x248b95(0x180)](function(_0x1013f2){var _0x218c16=_0x248b95;_0x1013f2[_0x218c16(0x166)]['pointerEvents']='',_0x1013f2['style'][_0x218c16(0x179)]='';}),_0x25ad6d[_0x248b95(0x166)][_0x248b95(0x13b)]=_0x248b95(0x146),setTimeout(()=>{var _0x118ba6=_0xbd905f,_0x15c4e5=_0x248b95;_0x25ad6d[_0x118ba6(0x7c)][_0x15c4e5(0x177)]=_0x15c4e5(0x15e),_0x25ad6d[_0x15c4e5(0x166)][_0x15c4e5(0x161)]='0';},0x104);}}export function passwordModal(_0x23f0c3){var _0x225420=a0_0x34c031,_0x333b88=a0_0xb4455;const _0x461bef=document[_0x333b88(0x175)](_0x333b88(0x16b)),_0x389a7f=document[_0x333b88(0x175)](_0x333b88(0x181)),_0x3f8178=document[_0x333b88(0x175)](_0x333b88(0x17b));if(_0x23f0c3){_0x3f8178[_0x333b88(0x166)][_0x333b88(0x177)]=_0x333b88(0x132),_0x389a7f[_0x333b88(0x166)][_0x333b88(0x177)]=_0x225420(0x80),_0x461bef[_0x333b88(0x166)][_0x333b88(0x177)]=_0x333b88(0x132),_0x461bef['style'][_0x333b88(0x13b)]='fadeIn\x200.25s\x20ease-in-out\x20forwards',setTimeout(()=>{var _0x3f6b9e=_0x333b88;_0x461bef[_0x3f6b9e(0x166)][_0x3f6b9e(0x161)]='1';},0x104),_0x461bef[_0x333b88(0x166)][_0x333b88(0x14c)]='',_0x461bef[_0x333b88(0x166)][_0x333b88(0x179)]='';var _0x36fe79=_0x461bef[_0x333b88(0x140)]('*');_0x36fe79[_0x333b88(0x180)](function(_0x454689){var _0xd8f54d=_0x225420,_0x76cbf1=_0x333b88;_0x454689[_0xd8f54d(0x7c)][_0x76cbf1(0x14c)]='',_0x454689[_0x76cbf1(0x166)][_0x76cbf1(0x179)]='';});var _0x36fe79=document[_0x333b88(0x140)](_0x333b88(0x170));_0x36fe79[_0x333b88(0x180)](function(_0x2b4ad3){var _0x3f2c04=_0x225420,_0x32524d=_0x333b88;_0x2b4ad3[_0x3f2c04(0x7c)][_0x32524d(0x14c)]='none',_0x2b4ad3[_0x32524d(0x166)][_0x32524d(0x179)]=_0x32524d(0x15e);});}else{_0x3f8178[_0x333b88(0x166)][_0x333b88(0x177)]=_0x333b88(0x15e),_0x389a7f[_0x333b88(0x166)]['display']=_0x333b88(0x132);var _0x4a3c51=document[_0x333b88(0x140)](_0x333b88(0x16c));_0x4a3c51[_0x225420(0x7a)](function(_0x184269){var _0x164430=_0x225420,_0x1a94d3=_0x333b88;_0x184269[_0x164430(0x7c)][_0x1a94d3(0x14c)]='',_0x184269[_0x164430(0x7c)]['userSelect']='';}),_0x461bef[_0x333b88(0x166)][_0x333b88(0x13b)]=_0x333b88(0x146),setTimeout(()=>{var _0x750b65=_0x225420,_0x42dd73=_0x333b88;_0x461bef['style'][_0x750b65(0xb6)]=_0x42dd73(0x15e),_0x461bef[_0x42dd73(0x166)][_0x42dd73(0x161)]='0';},0x104);}}function clickOutside(){var _0x1ebcb5=a0_0x34c031,_0x5a519a=a0_0xb4455;$(_0x1ebcb5(0xb5))[_0x5a519a(0x130)](_0x5a519a(0x169),function(){settingsModal(![]);}),$(_0x1ebcb5(0x7b))[_0x5a519a(0x130)](_0x5a519a(0x169),function(){passwordModal(![]);});}clickOutside();function setVolume(_0x5311f1){var _0x2e1781=a0_0xb4455;$(_0x5311f1)['on'](_0x2e1781(0x178),function(){var _0x41d128=a0_0x592a,_0x2f19cc=_0x2e1781,_0x1b3067=0x1,_0x4e4de2=0xc8;if(_0x5311f1[_0x2f19cc(0x172)]>=_0x5311f1[_0x41d128(0x8e)]*0.99){if(_0x5311f1['volume']==0x1)var _0x1ebb05=setInterval(function(){var _0xa72f32=_0x2f19cc;_0x1b3067>0x0?(_0x1b3067-=0.05,_0x5311f1[_0xa72f32(0x139)]=_0x1b3067[_0xa72f32(0x138)](0x2)):clearInterval(_0x1ebb05);},_0x4e4de2);}});}function a0_0x5110(){var _0x151b0c=a0_0x34c031,_0x4e537b=[_0x151b0c(0x89),'#infoWarning',_0x151b0c(0xae),_0x151b0c(0x70),'insertHTML','.ttsCheckbox',_0x151b0c(0x9f),_0x151b0c(0xa1),_0x151b0c(0x6c),_0x151b0c(0xb7),'#closeSettingsModal',_0x151b0c(0x84),_0x151b0c(0x80),_0x151b0c(0xa9),'div[contenteditable=\x22true\x22]','opacity',_0x151b0c(0xa4),'?optimize_streaming_latency=2','O\x20TTS\x20foi\x20desativado.',_0x151b0c(0xa7),_0x151b0c(0x7c),_0x151b0c(0x6e),'parse',_0x151b0c(0xaa),_0x151b0c(0xa2),'#ttsModalPassword',_0x151b0c(0xab),_0x151b0c(0x76),_0x151b0c(0x7f),_0x151b0c(0x8c),_0x151b0c(0xb1),'call',_0x151b0c(0xbd),_0x151b0c(0x95),_0x151b0c(0x9b),_0x151b0c(0xbe),_0x151b0c(0x97),_0x151b0c(0xb6),_0x151b0c(0x85),_0x151b0c(0xa0),'Senha\x20incorreta!','#overlay2','341505zYbPWm',_0x151b0c(0xad),'20761450CKNFOf',_0x151b0c(0xc8),'forEach',_0x151b0c(0xb5),_0x151b0c(0xb8),_0x151b0c(0x6d),_0x151b0c(0x90),_0x151b0c(0x9a),_0x151b0c(0x86),_0x151b0c(0xc7),_0x151b0c(0x9d),'Tente\x20novamente.',_0x151b0c(0x79),_0x151b0c(0x82),_0x151b0c(0xc2),'children',_0x151b0c(0x71),_0x151b0c(0xc4),_0x151b0c(0x72),_0x151b0c(0xa8),_0x151b0c(0x94),_0x151b0c(0x83),_0x151b0c(0x96),'#settingsModal',_0x151b0c(0x99),_0x151b0c(0x78),_0x151b0c(0x8b),'fadeOut\x200.5s\x20ease-in-out\x20forwards',_0x151b0c(0xbb),_0x151b0c(0xb3),_0x151b0c(0x8a),_0x151b0c(0x73),_0x151b0c(0x7d),_0x151b0c(0xac),'#errorWarning','136BBxYbN',_0x151b0c(0x91),'6260094Lxxvio',_0x151b0c(0xb2),_0x151b0c(0x9c),_0x151b0c(0x7e),_0x151b0c(0x75)];return a0_0x5110=function(){return _0x4e537b;},a0_0x5110();}const XI_API_KEY=a0_0x34c031(0xb9),VOICE_ID=a0_0xb4455(0x15d);function a0_0x592a(_0x12e769,_0x2a5e1f){var _0x279fdb=a0_0x279f();return a0_0x592a=function(_0x592aa7,_0x3a5333){_0x592aa7=_0x592aa7-0x6c;var _0x26255c=_0x279fdb[_0x592aa7];return _0x26255c;},a0_0x592a(_0x12e769,_0x2a5e1f);}export function tts(_0x334d37,_0x13ce92){if(_0x13ce92){const _0x133820=async _0xb2102b=>{var _0xd6459c=a0_0x592a,_0x49d1e6=a0_0x3e6f;const _0x294d15=await fetch(_0x49d1e6(0x154)+VOICE_ID+_0x49d1e6(0x163),{'method':_0xd6459c(0xaf),'headers':{'Accept':_0x49d1e6(0x167),'Content-Type':_0x49d1e6(0x135),'xi-api-key':XI_API_KEY},'body':JSON[_0x49d1e6(0x14e)]({'model_id':'eleven_multilingual_v2','text':_0xb2102b,'voice_settings':{'similarity_boost':0.75,'stability':0.62,'style':0.2,'use_speaker_boost':!![]}})});if(!_0x294d15['ok'])throw new Error(_0x49d1e6(0x16e)+_0x294d15['status']);return _0x294d15[_0x49d1e6(0x145)];},_0x347695=async _0x58a74d=>{var _0x57bbd0=a0_0x592a,_0x1f0828=a0_0x3e6f;const _0x2fffaf=await _0x133820(_0x58a74d),_0x305f92=new Audio();_0x305f92['srcObject']=_0x2fffaf,setVolume(_0x305f92),_0x305f92[_0x1f0828(0x13c)]();let _0x46a818=document[_0x57bbd0(0xbe)](_0x1f0828(0x131));_0x46a818[_0x1f0828(0x166)][_0x1f0828(0x13b)]=_0x1f0828(0x150);};_0x347695(_0x334d37);}}export function successfulWarning(_0x53377e,_0x40655c){var _0x333fb=a0_0x34c031,_0x5d41a9=a0_0xb4455,_0x3de630=document[_0x333fb(0xbe)](_0x5d41a9(0x162)),_0x52d310=_0x3de630[_0x5d41a9(0x175)](_0x5d41a9(0x174)),_0x53212a=_0x3de630[_0x5d41a9(0x175)](_0x5d41a9(0x16f))[_0x5d41a9(0x141)],_0x1e0050=0x1388;_0x53212a[_0x333fb(0xa9)]='\x20'+_0x40655c,_0x52d310[_0x5d41a9(0x15f)]=_0x53377e,_0x3de630[_0x5d41a9(0x166)][_0x333fb(0xc1)]='0',_0x3de630[_0x5d41a9(0x166)][_0x5d41a9(0x177)]=_0x5d41a9(0x132),_0x3de630[_0x333fb(0x7c)][_0x5d41a9(0x13b)]=_0x5d41a9(0x14f),_0x3de630[_0x333fb(0x7c)][_0x333fb(0xc1)]='1',$(_0x5d41a9(0x136))[_0x5d41a9(0x130)](_0x333fb(0xaa),function(){_0x1e0050=0x0,setTimeout(()=>{var _0x9bb1e8=a0_0x3e6f;_0x3de630[_0x9bb1e8(0x166)]['animation']=_0x9bb1e8(0x143);},_0x1e0050),setTimeout(()=>{var _0x510b05=a0_0x592a,_0x1b9f4f=a0_0x3e6f;_0x3de630[_0x1b9f4f(0x166)][_0x510b05(0xb6)]=_0x1b9f4f(0x15e);},_0x1e0050+0x190);}),setTimeout(()=>{var _0xcc295c=_0x5d41a9;_0x3de630['style'][_0xcc295c(0x13b)]=_0xcc295c(0x143);},_0x1e0050),setTimeout(()=>{var _0x120c1e=_0x333fb,_0x3ff423=_0x5d41a9;_0x3de630[_0x120c1e(0x7c)][_0x3ff423(0x177)]=_0x3ff423(0x15e);},_0x1e0050+0x190);}export function infoWarning(_0x4bdabe,_0x26502d){var _0x5ca387=a0_0xb4455,_0x575e31=document[_0x5ca387(0x175)](_0x5ca387(0x153)),_0x490113=_0x575e31[_0x5ca387(0x175)](_0x5ca387(0x174)),_0xa3ad00=_0x575e31[_0x5ca387(0x175)](_0x5ca387(0x16f))[_0x5ca387(0x141)],_0x5a9aca=0x1388;_0xa3ad00[_0x5ca387(0x15f)]='\x20'+_0x26502d,_0x490113[_0x5ca387(0x15f)]=_0x4bdabe,_0x575e31[_0x5ca387(0x166)][_0x5ca387(0x161)]='0',_0x575e31[_0x5ca387(0x166)][_0x5ca387(0x177)]=_0x5ca387(0x132),_0x575e31[_0x5ca387(0x166)][_0x5ca387(0x13b)]=_0x5ca387(0x14f),_0x575e31[_0x5ca387(0x166)][_0x5ca387(0x161)]='1',$(_0x5ca387(0x148))[_0x5ca387(0x130)](_0x5ca387(0x169),function(){_0x5a9aca=0x0,setTimeout(()=>{var _0x36bcd8=a0_0x592a,_0x3c2ca7=a0_0x3e6f;_0x575e31[_0x36bcd8(0x7c)][_0x3c2ca7(0x13b)]='fadeOut\x200.5s\x20ease-in-out\x20forwards';},_0x5a9aca),setTimeout(()=>{var _0x213039=a0_0x592a,_0x66ac99=a0_0x3e6f;_0x575e31[_0x66ac99(0x166)][_0x213039(0xb6)]=_0x213039(0x80);},_0x5a9aca+0x190);}),setTimeout(()=>{var _0x471eb8=_0x5ca387;_0x575e31[_0x471eb8(0x166)][_0x471eb8(0x13b)]=_0x471eb8(0x143);},_0x5a9aca),setTimeout(()=>{var _0x2a3bba=a0_0x592a,_0x59eb41=_0x5ca387;_0x575e31[_0x59eb41(0x166)][_0x2a3bba(0xb6)]=_0x2a3bba(0x80);},_0x5a9aca+0x190);}export function alertWarning(_0x3e4965,_0x55a688){var _0x2dd472=a0_0x34c031,_0x477153=a0_0xb4455,_0x59befd=document[_0x477153(0x175)](_0x2dd472(0x93)),_0x10885c=_0x59befd[_0x477153(0x175)](_0x477153(0x174)),_0x5cff66=_0x59befd[_0x477153(0x175)](_0x477153(0x16f))[_0x477153(0x141)],_0x3481cf=0x1388;_0x5cff66[_0x2dd472(0xa9)]='\x20'+_0x55a688,_0x10885c[_0x2dd472(0xa9)]=_0x3e4965,_0x59befd[_0x477153(0x166)][_0x477153(0x161)]='0',_0x59befd[_0x2dd472(0x7c)][_0x2dd472(0xb6)]=_0x477153(0x132),_0x59befd['style'][_0x477153(0x13b)]=_0x477153(0x14f),_0x59befd[_0x477153(0x166)]['opacity']='1',$(_0x477153(0x142))[_0x477153(0x130)](_0x477153(0x169),function(){_0x3481cf=0x0,setTimeout(()=>{var _0xd4729f=a0_0x3e6f;_0x59befd['style']['animation']=_0xd4729f(0x143);},_0x3481cf),setTimeout(()=>{var _0x59cff8=a0_0x3e6f;_0x59befd[_0x59cff8(0x166)][_0x59cff8(0x177)]=_0x59cff8(0x15e);},_0x3481cf+0x190);}),setTimeout(()=>{var _0x1a6127=_0x477153;_0x59befd[_0x1a6127(0x166)][_0x1a6127(0x13b)]=_0x1a6127(0x143);},_0x3481cf),setTimeout(()=>{var _0x2342e6=_0x477153;_0x59befd[_0x2342e6(0x166)]['display']=_0x2342e6(0x15e);},_0x3481cf+0x190);}export function errorWarning(_0x122c7e,_0x38a61b){var _0x482802=a0_0x34c031,_0x3a1051=a0_0xb4455,_0x49ef87=document[_0x482802(0xbe)](_0x3a1051(0x14a)),_0x2f6d7c=_0x49ef87[_0x3a1051(0x175)](_0x3a1051(0x174)),_0x4e3fe2=_0x49ef87[_0x3a1051(0x175)](_0x482802(0x8c))[_0x3a1051(0x141)],_0x517625=0x1388;_0x4e3fe2[_0x3a1051(0x15f)]='\x20'+_0x38a61b,_0x2f6d7c[_0x3a1051(0x15f)]=_0x122c7e,_0x49ef87[_0x3a1051(0x166)][_0x482802(0xc1)]='0',_0x49ef87[_0x3a1051(0x166)][_0x3a1051(0x177)]=_0x3a1051(0x132),_0x49ef87[_0x3a1051(0x166)][_0x3a1051(0x13b)]=_0x482802(0x9c),_0x49ef87[_0x3a1051(0x166)][_0x3a1051(0x161)]='1',$(_0x3a1051(0x15b))[_0x3a1051(0x130)](_0x482802(0xaa),function(){_0x517625=0x0,setTimeout(()=>{var _0x1bff38=a0_0x592a,_0x726aae=a0_0x3e6f;_0x49ef87[_0x726aae(0x166)][_0x726aae(0x13b)]=_0x1bff38(0xa3);},_0x517625),setTimeout(()=>{var _0x40be51=a0_0x592a,_0x593d0e=a0_0x3e6f;_0x49ef87[_0x593d0e(0x166)][_0x593d0e(0x177)]=_0x40be51(0x80);},_0x517625+0x190);}),setTimeout(()=>{var _0x5c8ccb=_0x482802,_0x88b284=_0x3a1051;_0x49ef87[_0x5c8ccb(0x7c)][_0x5c8ccb(0xa8)]=_0x88b284(0x143);},_0x517625),setTimeout(()=>{var _0x572e47=_0x482802,_0x412285=_0x3a1051;_0x49ef87[_0x412285(0x166)][_0x412285(0x177)]=_0x572e47(0x80);},_0x517625+0x190);}export function confirmPassword(){var _0x5bf556=a0_0x34c031,_0xea5c46=a0_0xb4455;const _0x3b125e=_0x5bf556(0xc3),_0x514d84=document[_0xea5c46(0x175)]('#ttsPassword')[_0x5bf556(0x8f)];_0x514d84==_0x3b125e?(enableTTS=!![],successfulWarning('Senha\x20correta!',_0xea5c46(0x12f)),$(_0x5bf556(0xa6))['prop']('checked',!![]),passwordModal(![])):(enableTTS=![],errorWarning(_0xea5c46(0x17a),_0xea5c46(0x133)),$(_0xea5c46(0x157))[_0xea5c46(0x165)](_0xea5c46(0x155),![]));}
+export let enableTTS = false;
+
+// Marked
+window.onload = function(){
+    const chat_message = document.querySelector("#message");
+    chat_message.innerHTML = marked.parse(chat_message.textContent);
+}
+
+function inputDivDynamic(){
+  const inputDiv = document.querySelector("#input");
+
+  if (inputDiv.children.length === 1 && inputDiv.children[0].tagName === "BR") {
+    inputDiv.innerHTML = '';
+  }
+}
+
+let allEditableDivs = document.querySelectorAll('div[contenteditable="true"]');
+
+[].forEach.call(allEditableDivs, function (el) {
+  el.addEventListener('paste', function(e) {
+    e.preventDefault();
+    var text = e.clipboardData.getData("text/plain");
+    document.execCommand("insertHTML", false, text);
+  }, false);
+});
+
+$("#input").on("focus", inputDivDynamic);
+$("#input").on("blur", inputDivDynamic);
+
+/* Modal */
+
+// Open modal
+$(".loading-container").bind("click", function() {
+  settingsModal(true);
+});
+
+// Close modal
+$("#disableTTS").bind("click", function() {
+  settingsModal(false);
+});
+
+
+$('.ttsCheckbox').click(function(){
+  if(enableTTS && $(this).prop("checked") == false){
+      infoWarning("TTS desativado!", "O TTS foi desativado.")
+      enableTTS = false;
+      $(".ttsCheckbox").prop("checked", false);
+  }else  {
+    passwordModal(true);
+  }
+});
+
+$("#confirmPassword").bind("click", function() {
+  var passwordConfirm = confirmPassword();
+  if(passwordConfirm == true){
+    passwordModal(false);
+  }
+});
+
+$("#closePasswordModal").bind("click", function() {
+  passwordModal(false);
+});
+
+$("#closeSettingsModal").bind("click", function(){
+  settingsModal(false);
+  passwordModal(false);
+});
+
+
+
+export function settingsModal(enable) {
+  const modal = document.querySelector("#settingsModal");
+  const overlay = document.querySelector('#overlay');
+   if (enable){
+    overlay.style.display = 'block';
+      modal.style.display = 'block';
+      modal.style.animation = 'fadeIn 0.25s ease-in-out forwards';
+      // Delaying the animation start to ensure display:block takes effect first
+      setTimeout(() => {
+        modal.style.opacity = '1';
+      }, 260);
+
+      var elementsToEnable = document.querySelectorAll('*:not(#settingsModal, #settingsModal *, #ttsModalPassword, ttsModalPassword *, body, head, html, #overlay, #overlay2)');
+      elementsToEnable.forEach(function(element) {
+        element.style.pointerEvents = 'none';
+        element.style.userSelect = 'none';
+      });
+  }else {
+    overlay.style.display = 'none';
+    var elementsToEnable = document.querySelectorAll('*:not(#settingsModal, #settingsModal *, #ttsModalPassword, ttsModalPassword *, body, head, html, #overlay, #overlay2)');
+    elementsToEnable.forEach(function(element) {
+      element.style.pointerEvents = '';
+      element.style.userSelect = '';
+    });
+    modal.style.animation = 'fadeOut 0.25s ease-in-out forwards';
+    setTimeout(() => {
+      modal.style.display = 'none';
+      modal.style.opacity = '0';
+    }, 260);
+  }
+}
+
+export function passwordModal(enable) {
+  const modal = document.querySelector("#ttsModalPassword");
+  const overlay = document.querySelector("#overlay")
+  const overlay2 = document.querySelector("#overlay2");
+   if (enable){
+    overlay2.style.display = 'block';
+    overlay.style.display = 'none';
+    modal.style.display = 'block';
+    modal.style.animation = 'fadeIn 0.25s ease-in-out forwards';
+    setTimeout(() => {
+      modal.style.opacity = '1';
+    }, 260);
+
+    modal.style.pointerEvents = '';
+    modal.style.userSelect = '';
+
+    var elementsToDisable = modal.querySelectorAll('*');
+    elementsToDisable.forEach(function (element) {
+      element.style.pointerEvents = '';
+      element.style.userSelect = '';
+    });
+
+    var elementsToDisable = document.querySelectorAll('*:not(#ttsModalPassword, #ttsModalPassword *, body, head, html, #overlay, #overlay2)');
+    elementsToDisable.forEach(function(element) {
+      element.style.pointerEvents = 'none';
+      element.style.userSelect = 'none';
+    });
+
+
+  }else {
+    overlay2.style.display = 'none';
+    overlay.style.display = 'block';
+    var elementsToEnable = document.querySelectorAll('#settingsModal *, #settingsModal');
+    elementsToEnable.forEach(function(element) {
+      element.style.pointerEvents = '';
+      element.style.userSelect = '';
+    });
+
+    
+    modal.style.animation = 'fadeOut 0.25s ease-in-out forwards';
+    setTimeout(() => {
+      modal.style.display = 'none';
+      modal.style.opacity = '0';
+    }, 260);
+  }
+}
+
+function clickOutside(){
+  $("#overlay").bind("click", function() {
+    settingsModal(false);
+  });
+  $("#overlay2").bind("click", function() {
+    passwordModal(false);
+  });
+}
+
+
+
+clickOutside();
+
+/* TTS */
+
+function setVolume(audioElement){
+  $(audioElement).on('timeupdate', function() {				
+    var vol = 1,
+    interval = 200; // 200ms interval
+    if (audioElement.currentTime >= audioElement.duration * 0.99) {
+        if (audioElement.volume == 1) {
+            var intervalID = setInterval(function() {
+	        // Reduce volume by 0.05 as long as it is above 0
+	        // This works as long as you start with a multiple of 0.05!
+	        if (vol > 0) {
+	            vol -= 0.05;
+	            // limit to 2 decimal places
+                    // also converts to string, works ok
+                    audioElement.volume = vol.toFixed(2);
+	        } else {
+	            // Stop the setInterval when 0 is reached
+	            clearInterval(intervalID);
+	        }
+            }, interval);
+        }
+    }
+});
+}
+
+const XI_API_KEY = 'f289db5d52aee96edb192f8afc841cfd';
+const VOICE_ID = 'ATQd4vxdAX9JLua70mY3';
+
+export function tts(text, enable) {
+  if (enable){
+    const textToSpeech = async (inputText) => {
+      const response = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${VOICE_ID}?optimize_streaming_latency=2`, {
+        method: 'POST',
+        headers: {
+          'Accept': 'audio/mpeg',
+          'Content-Type': 'application/json',
+          'xi-api-key': XI_API_KEY
+        },
+        body: JSON.stringify({      
+          "model_id": "eleven_multilingual_v2",
+          "text": inputText,
+          "voice_settings": {
+            "similarity_boost": 0.75,
+            "stability": 0.62,
+            "style": 0.2,
+            "use_speaker_boost": true
+          } 
+        })
+      });
+    
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+    
+      return response.body; // Return the ReadableStream
+    };
+    
+    const playAudio = async (inputText) => {
+      const audioStream = await textToSpeech(inputText);
+      const audio = new Audio();
+      audio.srcObject = audioStream;
+      setVolume(audio);
+      audio.play();
+      let loadingCircle = document.querySelector(".maskedCircle");
+      loadingCircle.style.animation = "reverseColor 1s linear forwards, reverseGlow 1s linear forwards, blink 1s infinite linear";
+    };
+
+    playAudio(text);
+  }
+}
+
+
+
+
+export function successfulWarning(boldText, text){
+    var warning = document.querySelector("#successfulWarning");
+    var bold = warning.querySelector("strong");
+    var normalText = warning.querySelector(".alert").lastChild;
+    var fadeSpeed = 5000;
+    normalText.textContent = ' ' + text;
+    bold.textContent = boldText;
+    warning.style.opacity = '0';
+    warning.style.display = 'block';
+    warning.style.animation = "fadeIn 0.5s ease-in-out forwards";
+    warning.style.opacity = '1';
+    $("#closeSuccessfulWarning").bind("click", function() {
+      fadeSpeed = 0;
+      setTimeout(() => {
+        warning.style.animation = "fadeOut 0.5s ease-in-out forwards";
+      }, fadeSpeed);
+      
+    setTimeout(() => {
+        warning.style.display = 'none';
+      }, fadeSpeed + 400);
+    });
+
+    setTimeout(() => {
+        warning.style.animation = "fadeOut 0.5s ease-in-out forwards";
+      }, fadeSpeed);
+      
+    setTimeout(() => {
+        warning.style.display = 'none';
+      }, fadeSpeed + 400);
+}
+
+export function infoWarning(boldText, text){
+  var warning = document.querySelector("#infoWarning");
+  var bold = warning.querySelector("strong");
+  var normalText = warning.querySelector(".alert").lastChild;
+  var fadeSpeed = 5000;
+  normalText.textContent = ' ' + text;
+  bold.textContent = boldText;
+  warning.style.opacity = '0';
+  warning.style.display = 'block';
+  warning.style.animation = "fadeIn 0.5s ease-in-out forwards";
+  warning.style.opacity = '1';
+  $("#closeInfoWarning").bind("click", function() {
+    fadeSpeed = 0;
+    setTimeout(() => {
+      warning.style.animation = "fadeOut 0.5s ease-in-out forwards";
+    }, fadeSpeed);
+    
+  setTimeout(() => {
+      warning.style.display = 'none';
+    }, fadeSpeed + 400);
+  });
+
+  setTimeout(() => {
+      warning.style.animation = "fadeOut 0.5s ease-in-out forwards";
+    }, fadeSpeed);
+    
+  setTimeout(() => {
+      warning.style.display = 'none';
+    }, fadeSpeed + 400);
+}
+
+export function alertWarning(boldText, text){
+  var warning = document.querySelector("#alertWarning");
+  var bold = warning.querySelector("strong");
+  var normalText = warning.querySelector(".alert").lastChild;
+  var fadeSpeed = 5000;
+  normalText.textContent = ' ' + text;
+  bold.textContent = boldText;
+  warning.style.opacity = '0';
+  warning.style.display = 'block';
+  warning.style.animation = "fadeIn 0.5s ease-in-out forwards";
+  warning.style.opacity = '1';
+  $("#closeAlertWarning").bind("click", function() {
+    fadeSpeed = 0;
+    setTimeout(() => {
+      warning.style.animation = "fadeOut 0.5s ease-in-out forwards";
+    }, fadeSpeed);
+    
+  setTimeout(() => {
+      warning.style.display = 'none';
+    }, fadeSpeed + 400);
+  });
+
+  setTimeout(() => {
+      warning.style.animation = "fadeOut 0.5s ease-in-out forwards";
+    }, fadeSpeed);
+    
+  setTimeout(() => {
+      warning.style.display = 'none';
+    }, fadeSpeed + 400);
+}
+
+export function errorWarning(boldText, text){
+  var warning = document.querySelector("#errorWarning");
+  var bold = warning.querySelector("strong");
+  var normalText = warning.querySelector(".alert").lastChild;
+  var fadeSpeed = 5000;
+  normalText.textContent = ' ' + text;
+  bold.textContent = boldText;
+  warning.style.opacity = '0';
+  warning.style.display = 'block';
+  warning.style.animation = "fadeIn 0.5s ease-in-out forwards";
+  warning.style.opacity = '1';
+  $("#closeErrorWarning").bind("click", function() {
+    fadeSpeed = 0;
+    setTimeout(() => {
+      warning.style.animation = "fadeOut 0.5s ease-in-out forwards";
+    }, fadeSpeed);
+    
+  setTimeout(() => {
+      warning.style.display = 'none';
+    }, fadeSpeed + 400);
+  });
+
+  setTimeout(() => {
+      warning.style.animation = "fadeOut 0.5s ease-in-out forwards";
+    }, fadeSpeed);
+    
+  setTimeout(() => {
+      warning.style.display = 'none';
+    }, fadeSpeed + 400);
+}
+
+
+export function confirmPassword() {
+  const ttsPassword = '@Rafafa2105';
+  const passwordInput = document.querySelector("#ttsPassword").value;
+  if (passwordInput == ttsPassword){
+      enableTTS = true;
+      successfulWarning("Senha correta!", "O TTS está ativado agora.");
+      $(".ttsCheckbox").prop("checked", true);
+      passwordModal(false);
+  }else{
+      enableTTS = false;
+      errorWarning("Senha incorreta!", "Tente novamente.");
+      $(".ttsCheckbox").prop("checked", false);
+  }
+}
