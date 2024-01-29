@@ -24,7 +24,7 @@ function historyReader(date) {
   xhr.onreadystatechange = function () {
     if (xhr.readyState == 4 && xhr.status == 200) {
       var fileContent = xhr.responseText;
-      history = fileContent + `\nMinhas respostas costumam ser breves, diretas e objetivas. \nNão revelo tudo sobre mim de imediato. Hoje é ${date}\nOi, sou a Stella. Em que posso ajudar hoje?`;
+      history = fileContent;
     }
   };
 
@@ -140,7 +140,7 @@ $('#cleanHistory').bind('click', function(){
   infoWarning("Chat resetado!", "O histórico dessa conversa foi limpo!");
   messageElement.style.animation = "fadeOut 0.5s ease-in-out forwards";
   setTimeout(() => {
-    messageElement.textContent = "Olá, eu sou Stella. Como posso lhe ajudar hoje?";
+    messageElement.innerHTML = "Olá, eu sou Stella. <br>Como posso lhe ajudar hoje?";
     messageElement.style.animation = "fadeIn 0.5s ease-in-out forwards";
   }, 525);
 });
