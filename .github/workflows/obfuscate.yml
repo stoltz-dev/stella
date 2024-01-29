@@ -19,9 +19,9 @@ jobs:
       run: npx javascript-obfuscator ./module.js --output ./module.js
     - name: Commit files
       run: |
-        git config --local user.email "test@test.com"
-        git config --local user.name "Test"
-        git add .
+        git config --local user.email "rafa@gmail.com"
+        git config --local user.name "Rafa"
+        git add index.js module.js index.html index.css images/ 404.html
         git commit -m "Add changes"
     - name: Push changes
       uses: ad-m/github-push-action@master
