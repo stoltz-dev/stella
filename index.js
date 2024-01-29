@@ -204,8 +204,8 @@ export function tts(text, enable) {
           "text": inputText,
           "voice_settings": {
             "similarity_boost": 0.75,
-            "stability": 0.62,
-            "style": 0.2,
+            "stability": 0.2,
+            "style": 0.0,
             "use_speaker_boost": true
           } 
         })
@@ -221,12 +221,16 @@ export function tts(text, enable) {
     const playAudio = async (inputText) => {
       const audioStream = await textToSpeech(inputText);
       const audio = new Audio();
-      audio.srcObject = audioStream;
+      // create a blob URL from the audio stream
+      const blob = await new Response(audioStream).blob();
+      const url = URL.createObjectURL(blob);
+      // assign the blob URL to the src property
+      audio.src = url;
       setVolume(audio);
       audio.play();
       let loadingCircle = document.querySelector(".maskedCircle");
       loadingCircle.style.animation = "reverseColor 1s linear forwards, reverseGlow 1s linear forwards, blink 1s infinite linear";
-    };
+    }    ;
 
     playAudio(text);
   }
