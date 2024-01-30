@@ -50,6 +50,7 @@ body {
     align-items: center;
     justify-content: center;
     z-index: 10;
+    overflow: auto;
   }
   
   .input-container {
@@ -258,7 +259,6 @@ body {
     transition: all 0.25s ease-in-out;
     z-index: 10;
     max-height: 100%;
-    overflow: auto;
   }
   
   #message * {
@@ -266,11 +266,11 @@ body {
   }
 
   .fadeIn {
-    animation: fadeIn 0.5s ease-in-out forwards;
+    animation: fadeIn 0.2s ease-in-out forwards;
   }
 
   .fadeOut {
-    animation: fadeOut 0.5s ease-in-out forwards;
+    animation: fadeOut 0.2s ease-in-out forwards;
   }
   
   @keyframes fadeIn {
