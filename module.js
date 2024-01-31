@@ -98,6 +98,7 @@ async function run(rawInput) {
 
       if (lastTokenFormated == "</s>") {
         gen.innerHTML = marked.parse(gen.textContent);
+        
         gen.style.animation = "fadeIn 0.5s ease-in-out forwards";
         
 
