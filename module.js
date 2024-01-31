@@ -7,13 +7,10 @@ import { infoWarning } from "./index.js";
 import { alertWarning } from "./index.js";
 import { errorWarning } from "./index.js";
 import { enableTTS } from "./index.js";
-import { confirmPassword } from "./index.js";
 
 
 let history = '';
 var formattedDate;
-
-// export let ttsText = tts();
 
 
 // A function that requests a file from the server and logs its contents
