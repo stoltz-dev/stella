@@ -156,7 +156,6 @@ async function run(rawInput) {
           let svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
           // set the SVG attributes
           svg.setAttribute("viewBox", "0 -960 960 960");
-          svg.style.fill = 'white';
           // create a path element with the SVG namespace
           let path = document.createElementNS("http://www.w3.org/2000/svg", "path");
           // set the path attributes
@@ -175,11 +174,11 @@ async function run(rawInput) {
               navigator.clipboard.writeText(text)
                 .then(() => {
                   // show a success message
-                  infoWarning("Copied to clipboard!");
+                  infoWarning("Copied to clipboard!", "The text was copied to your clipboard.");
                 })
                 .catch((error) => {
                   // show an error message
-                  errorWarning("Copy failed: " + error);
+                  errorWarning("Copy failed:", error);
                 });
             });
           }

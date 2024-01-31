@@ -825,6 +825,7 @@ pre {
   color: white;
   padding: 16px;
   font-size: 85%;
+  position: relative;
 }
 
 .pre-wrapper{
@@ -860,8 +861,17 @@ pre {
 .copy-button {
   width: 28px;
   height: 28px;
+  margin: 8px;
+  position: absolute;
+  top: 0;
+  right: 0;
 }
 
-.copy-button:hover {
-  border: solid #30363D 1px;
+.copy-button svg {
+  fill: white;
+  transition: all 0.1s ease-in !important;
+}
+
+.copy-button svg:hover {
+  fill: rgb(109, 109, 109);
 }
