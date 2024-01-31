@@ -204,7 +204,7 @@ export function tts(text, enable) {
           "text": inputText,
           "voice_settings": {
             "similarity_boost": 0.75,
-            "stability": 0.2,
+            "stability": 0.3,
             "style": 0.0,
             "use_speaker_boost": true
           } 
@@ -218,7 +218,7 @@ export function tts(text, enable) {
       return response.body; // Return the ReadableStream
     };
     
-    const playAudio = async (inputText) => {
+    const generateAudio = async (inputText) => {
       const audioStream = await textToSpeech(inputText);
       const audio = new Audio();
       // create a blob URL from the audio stream
@@ -227,14 +227,14 @@ export function tts(text, enable) {
       // assign the blob URL to the src property
       audio.src = url;
       setVolume(audio);
-      audio.play();
-      let loadingCircle = document.querySelector(".maskedCircle");
-      loadingCircle.style.animation = "reverseColor 1s linear forwards, reverseGlow 1s linear forwards, blink 1s infinite linear";
-    }    ;
+      
+      return audio;
+    };
 
-    playAudio(text);
+    return generateAudio(text);
   }
 }
+
 
 
 
@@ -378,3 +378,64 @@ export function confirmPassword() {
       $(".ttsCheckbox").prop("checked", false);
   }
 }
+
+
+jQuery( document).ready(function($){
+	var copyid = 0;
+	$('pre').each(function(){
+		copyid++;
+		$(this).attr( 'data-copyid', copyid).wrap( '<div class="pre-wrapper"/>');
+		$(this).parent().css( 'margin', $(this).css( 'margin') );
+		$('<button class="copy-snippet">Copy</button>').insertAfter( $(this) ).data( 'copytarget',copyid );
+	});
+
+	$('body').on( 'click', '.copy-snippet', function(ev){
+		ev.preventDefault();
+
+		var $copyButton = $(this);
+
+		$pre = $(document).find('pre[data-copyid=' + $copyButton.data('copytarget' ) + ']');
+		if ( $pre.length ) {
+			var textArea = document.createElement("textarea");
+
+			// Place in top-left corner of screen regardless of scroll position.
+			textArea.style.position = 'fixed';
+			textArea.style.top = 0;
+			textArea.style.left = 0;
+
+			// Ensure it has a small width and height. Setting to 1px / 1em
+			// doesn't work as this gives a negative w/h on some browsers.
+			textArea.style.width = '2em';
+			textArea.style.height = '2em';
+			
+			// We don't need padding, reducing the size if it does flash render.
+			textArea.style.padding = 0;
+
+			// Clean up any borders.
+			textArea.style.border = 'none';
+			textArea.style.outline = 'none';
+			textArea.style.boxShadow = 'none';
+
+			// Avoid flash of white box if rendered for any reason.
+			textArea.style.background = 'transparent';
+
+			//Set value to text to be copied
+			textArea.value = $pre.html();
+
+			document.body.appendChild(textArea);
+			textArea.select();
+
+			try {
+				document.execCommand('copy');
+				$copyButton.text( 'Copied').prop('disabled', true);;
+			} catch (err) {
+				$copyButton.text( 'FAILED: Could not copy').prop('disabled', true);;
+			}
+			setTimeout(function(){
+				$copyButton.text( 'Copy').prop('disabled', false);;
+			}, 3000);
+		}
+	});
+});
+    
+    
