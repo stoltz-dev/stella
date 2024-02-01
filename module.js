@@ -186,6 +186,7 @@ async function run(rawInput) {
 
         
         gen.style.animation = "fadeIn 0.5s ease-in-out forwards";
+        gen.style.userSelect = 'none';
         
 
         // TTS part
@@ -250,6 +251,7 @@ document.addEventListener("keydown", function (event) {
 
         setTimeout(() => {
           run(inputValue);
+          messageElement.style.userSelect = 'none';
         }, 500);
     }
   } else if (isEnterPressed && passwordModalElement.style.display == 'block' && settingsModalElement.style.display != 'block'){
