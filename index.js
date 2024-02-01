@@ -2,17 +2,36 @@ export let enableTTS = false;
 
 // Marked
 window.onload = function(){
-    const chat_message = document.querySelector("#message");
-    chat_message.innerHTML = marked.parse(chat_message.textContent);
+  const chat_message = document.querySelector("#message");
+  chat_message.innerHTML = marked.parse(chat_message.textContent);
+
+}
+
+// Get the hash value without the # character
+var hash = window.location.hash.substring(1);
+
+// If the hash value is config, execute the function
+if (hash === "config") {
+  settingsModal(true);
 }
 
 function inputDivDynamic(){
   const inputDiv = document.querySelector("#input");
 
-  if (inputDiv.children.length === 1 && inputDiv.children[0].tagName === "BR") {
+  // Get all child nodes of inputDiv
+  let childNodes = Array.from(inputDiv.childNodes);
+
+  // Filter out text nodes that only contain whitespace and <br> elements
+  let nonEmptyNodes = childNodes.filter(node => {
+    return !(node.nodeType === Node.TEXT_NODE && node.textContent.trim() === '') && !(node.nodeType === Node.ELEMENT_NODE && node.tagName === 'BR');
+  });
+
+  // If there are no non-empty nodes, clear the inputDiv
+  if (nonEmptyNodes.length === 0) {
     inputDiv.innerHTML = '';
   }
 }
+
 
 let allEditableDivs = document.querySelectorAll('div[contenteditable="true"]');
 
@@ -72,6 +91,7 @@ export function settingsModal(enable) {
   const modal = document.querySelector("#settingsModal");
   const overlay = document.querySelector('#overlay');
    if (enable){
+    window.location.hash = 'config';
     overlay.style.display = 'block';
       modal.style.display = 'block';
       modal.style.animation = 'fadeIn 0.25s ease-in-out forwards';
@@ -86,6 +106,7 @@ export function settingsModal(enable) {
         element.style.userSelect = 'none';
       });
   }else {
+    remHash();
     overlay.style.display = 'none';
     var elementsToEnable = document.querySelectorAll('*:not(#settingsModal, #settingsModal *, #ttsModalPassword, ttsModalPassword *, body, head, html, #overlay, #overlay2)');
     elementsToEnable.forEach(function(element) {
@@ -438,4 +459,20 @@ jQuery( document).ready(function($){
 	});
 });
     
-    
+ 
+
+window.onhashchange = function(){
+  switch(location.hash) {
+    case '#config':
+      settingsModal(true);
+    break;
+  }
+}
+
+function remHash() {
+  var uri = window.location.toString();
+  if (uri.indexOf("#") > 0) {
+     var clean_uri = uri.substring(0, uri.indexOf("#"));
+     window.history.replaceState({}, document.title, clean_uri);
+  }
+}

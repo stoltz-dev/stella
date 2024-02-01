@@ -28,7 +28,7 @@ const marked = new Marked(
 
 let history = '';
 var formattedDate;
-
+var generating = false;
 
 // A function that requests a file from the server and logs its contents
 function historyReader(date) {
@@ -186,7 +186,8 @@ async function run(rawInput) {
 
         
         gen.style.animation = "fadeIn 0.5s ease-in-out forwards";
-        gen.style.userSelect = 'none';
+        gen.style.userSelect = '';
+        generating = false;
         
 
         // TTS part
@@ -237,9 +238,12 @@ document.addEventListener("keydown", function (event) {
   if (isEnterPressed && !isShiftPressed && passwordModalElement.style.display != 'block' && settingsModalElement.style.display != 'block') {
     event.preventDefault();
     const inputElement = document.querySelector("#input");
-    if (!inputElement.innerText.trim()){
+    if (generating){
+      alertWarning("Calma amigão", "Uma mensagem de cada vez.");
+    }else if (!inputElement.innerText.trim()){
         alertWarning("Input vazio!", "Insira pelo menos um caractere.");
     }else{
+      generating = true;
         const messageElement = document.querySelector("#message");
         messageElement.style.animation = "fadeOut 0.5s ease-in-out forwards";
         var inputValue = inputElement.innerText.trim();
