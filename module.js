@@ -117,8 +117,8 @@ function playParagraphs(element) {
   });
 }
 
-
-
+var messageIndex = 1;
+var lastMessage = '';
 
 async function run(rawInput) {
   const controller = new AbortController();
@@ -126,7 +126,7 @@ async function run(rawInput) {
   const input = message.replace("{:}", rawInput);
   const token = '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';
   const hf = new HfInference(token);
-  let gen = document.querySelector("#message");
+  let gen = document.createElement("div");
   let loadingCircle = document.querySelector(".maskedCircle");
   history += input;
 
@@ -139,13 +139,30 @@ async function run(rawInput) {
       history += lastTokenFormated;
 
       if (lastTokenFormated == "</s>") {
+        messageIndex++;
         gen.innerHTML = marked.parse(gen.textContent);
-        let aiMessageElement = document.querySelector("#aiMessage");
-        let userMessageElement = document.querySelector("#userMessage");
-  
-        aiMessageElement.textContent = gen.textContent;
-        userMessageElement.textContent = rawInput;
-        // get all the pre elements in the document
+        let historyElement = document.querySelector("#history");
+        let userMessageElement = document.createElement("div");
+        let historyMessageGroup = document.createElement("div");
+        let lastMessageElement = document.createElement("div")
+
+        userMessageElement.innerHTML += marked.parse(rawInput);
+
+        userMessageElement.id = "userMessage";
+        gen.id = "aiMessage";
+        historyMessageGroup.id = 'messageIndex' + messageIndex;
+
+        historyMessageGroup.className = 'messageGroup';
+
+        try{
+          let lastMessageElement = document.querySelector("messageIndex" + messageIndex);
+          lastMessageElement.style.alignSelf = 'flex-end';
+        } catch {}
+
+        historyElement.scrollTo(historyElement.innerWidth, historyElement.innerHeight);
+        historyMessageGroup.appendChild(gen);
+        historyMessageGroup.appendChild(userMessageElement);
+        historyElement.appendChild(historyMessageGroup);
 
       // check if gen has any pre elements
       if(gen.querySelectorAll("pre").length > 0){
@@ -246,10 +263,17 @@ document.addEventListener("keydown", function (event) {
     if (generating){
       alertWarning("Calma amigão", "Uma mensagem de cada vez.");
     }else if (!inputElement.innerText.trim()){
-        alertWarning("Input vazio!", "Insira pelo menos um caractere.");
+      window.scrollTo(window.innerWidth, window.innerHeight);
+      alertWarning("Input vazio!", "Insira pelo menos um caractere.");
     }else{
+      window.scrollTo(window.innerWidth, window.innerHeight);
       generating = true;
-        const messageElement = document.querySelector("#message");
+        const messageElement = document.querySelector("#messageIndex" + messageIndex + ", #aiMessage");
+        lastMessage = messageElement.innerHTML;
+        let lastMessageElement = document.createElement("div");
+        lastMessageElement.id = "lastMessage";
+        document.querySelector("#history").appendChild(lastMessageElement);
+        lastMessageElement.appendChild(document.querySelector("#messageIndex" + messageIndex));
         messageElement.style.animation = "fadeOut 0.5s ease-in-out forwards";
         var inputValue = inputElement.innerText.trim();
         console.log(inputValue);
@@ -270,16 +294,34 @@ document.addEventListener("keydown", function (event) {
 
 });
 
-function fadeInOut(element, fadeType, displayType){
-  element.style.animation = `${fadeType} 0.5s ease-in-out forwards`;
-  fadeType == "fadeOut" ? setTimeout(() => {element.style.display = 'none';}, 500) : setTimeout(() => {element.style.display = `${displayType}`;}, 500)
+function fadeInOut(DOMElement, fadeType, displayType){
+
+  if (fadeType == "fadeOut"){
+    DOMElement.style.animation = 'fadeOut 0.5s ease-in-out forwards';
+    setTimeout(() => {
+      DOMElement.style.display = 'none';
+      console.log(false);
+    }, 500);
+  }else if (fadeType == "fadeIn"){
+    console.log(true);
+    DOMElement.style.display = `${displayType}`;
+    DOMElement.style.animation = 'fadeIn 0.5s ease-in-out forwards';
+  }
 }
 
 function openHistory(enable){
   let historyElement = document.querySelector("#history");
-  let historyMessages = historyElement.querySelector("#aiMessage, #userMessage");
+  try {
+    if (enable){
+      let notLastMessage = document.querySelector("#messageIndex" + (messageIndex - 1));
+      console.log(notLastMessage);
 
-  enable && historyMessages.hasChildNodes() ? fadeInOut(historyElement, "fadeIn", "flex") : fadeInOut(historyElement, "fadeOut", "flex");
+      notLastMessage.style.animation = 'fadeIn 0.5s ease-in-out forwards';
+    }else{ 
+      historyMessages.style.animation = 'fadeOut 0.5s ease-in-out forwards'
+    }
+  } catch {}
+
 
 }
 
@@ -287,7 +329,9 @@ function openHistory(enable){
 window.onwheel = function(event) {
   if (document.documentElement.scrollTop === 0 && event.deltaY < 0) {
     openHistory(true);
+    console.log("Scroll Up!");
   }else{
     openHistory(false);
+    console.log("Scroll Down!");
   }
 };
