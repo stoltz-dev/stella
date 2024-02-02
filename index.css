@@ -889,3 +889,34 @@ pre {
 #message a:hover{
   text-decoration: underline !important;
 }
+
+#message img {
+  width: 10rem;
+  margin: 0 auto;
+  border: solid 1px white;
+}
+
+#history {
+  z-index: 20;
+  display: none;
+  flex-direction: column;
+  color: white !important;
+}
+
+#history * {
+  background-color: #161b22;
+  border: solid 1px #30363D;
+  border-radius: 5px;
+  padding: 8px;
+  margin-bottom: 8px;
+}
+
+#aiMessage {
+  right: 100%;
+  position: relative;
+}
+
+#userMessage {
+  left: 100%;
+  position: relative;
+}

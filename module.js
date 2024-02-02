@@ -140,6 +140,11 @@ async function run(rawInput) {
 
       if (lastTokenFormated == "</s>") {
         gen.innerHTML = marked.parse(gen.textContent);
+        let aiMessageElement = document.querySelector("#aiMessage");
+        let userMessageElement = document.querySelector("#userMessage");
+  
+        aiMessageElement.textContent = gen.textContent;
+        userMessageElement.textContent = rawInput;
         // get all the pre elements in the document
 
       // check if gen has any pre elements
@@ -166,28 +171,28 @@ async function run(rawInput) {
           button.appendChild(svg);
           // append the button to the pre element
           pre.appendChild(button);
-            // add a click event listener to the button
-            button.addEventListener("click", function() {
-              // get the text content of the pre element
-              let text = pre.textContent;
-              // copy the text to the clipboard using the navigator.clipboard API
-              navigator.clipboard.writeText(text)
-                .then(() => {
-                  // show a success message
-                  infoWarning("Copied to clipboard!", "The text was copied to your clipboard.");
-                })
-                .catch((error) => {
-                  // show an error message
-                  errorWarning("Copy failed:", error);
-                });
-            });
-          }
+          // add a click event listener to the button
+          button.addEventListener("click", function() {
+            // get the text content of the pre element
+            let text = pre.textContent;
+            // copy the text to the clipboard using the navigator.clipboard API
+            navigator.clipboard.writeText(text)
+              .then(() => {
+                // show a success message
+                infoWarning("Copied to clipboard!", "The text was copied to your clipboard.");
+              })
+              .catch((error) => {
+                // show an error message
+                errorWarning("Copy failed:", error);
+              });
+          });
         }
+      }
 
         
-        gen.style.animation = "fadeIn 0.5s ease-in-out forwards";
-        gen.style.userSelect = '';
-        generating = false;
+      gen.style.animation = "fadeIn 0.5s ease-in-out forwards";
+      gen.style.userSelect = '';
+      generating = false;
         
 
         // TTS part
@@ -264,3 +269,20 @@ document.addEventListener("keydown", function (event) {
   }
 
 });
+
+function openHistory(enable){
+  let historyElement = document.querySelector("#history");
+  let historyMessages = historyElement.querySelector("#aiMessages, #userMessages");
+
+  enable && historyMessages.hasChildNodes() ? historyElement.style.display = 'flex' : historyElement.style.display = 'none';
+
+}
+
+
+window.onwheel = function(event) {
+  if (document.documentElement.scrollTop === 0 && event.deltaY < 0) {
+    openHistory(true);
+  }else{
+    openHistory(false);
+  }
+};

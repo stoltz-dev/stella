@@ -476,3 +476,5 @@ function remHash() {
      window.history.replaceState({}, document.title, clean_uri);
   }
 }
+
+
