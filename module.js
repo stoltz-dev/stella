@@ -270,11 +270,16 @@ document.addEventListener("keydown", function (event) {
 
 });
 
+function fadeInOut(element, fadeType, displayType){
+  element.style.animation = `${fadeType} 0.5s ease-in-out forwards`;
+  fadeType == "fadeOut" ? setTimeout(() => {element.style.display = 'none';}, 500) : setTimeout(() => {element.style.display = `${displayType}`;}, 500)
+}
+
 function openHistory(enable){
   let historyElement = document.querySelector("#history");
-  let historyMessages = historyElement.querySelector("#aiMessages, #userMessages");
+  let historyMessages = historyElement.querySelector("#aiMessage, #userMessage");
 
-  enable && historyMessages.hasChildNodes() ? historyElement.style.display = 'flex' : historyElement.style.display = 'none';
+  enable && historyMessages.hasChildNodes() ? fadeInOut(historyElement, "fadeIn", "flex") : fadeInOut(historyElement, "fadeOut", "flex");
 
 }
 
