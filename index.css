@@ -40,6 +40,7 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
+    width: 70%;
   }
   
   #chat-messages {
@@ -378,7 +379,8 @@ body {
 
 
  #ttsModalPassword input{
-  border: 2px solid rgb(242, 242, 242);
+  background-color: #0d0a1c;
+  border: solid 1px #4F4789;
   caret-color: rgb(242, 242, 242);
   color: rgb(242, 242, 242);
   -webkit-animation: inputVisibilityB 0.8s infinite alternate;
@@ -778,21 +780,21 @@ cursor:pointer;
   border: solid 2px #7b00ff;
 }
 
-#cleanHistory {
+#clearHistory {
   transition: all 0.3s ease-in-out;
   margin-top: 20px;
   border: solid 2px red;
 }
 
-#cleanHistory {
+#clearHistory {
   border: solid 2px red;
 }
 
-#cleanHistory:hover {
+#clearHistory:hover {
   box-shadow: inset red 0px 0px 10px 3px,  red 0px 0px 10px 3px;
 }
 
-#cleanHistory:active {
+#clearHistory:active {
   border: solid 2px red;
   box-shadow: inset red 0px 0px 13px 6px,  red 0px 0px 13px 6px;
   transition: all 0s ease-in-out;
@@ -807,8 +809,8 @@ cursor:pointer;
 }
 
 .modals {
-  background: rgb(13, 16, 23);
-  border: 1px solid white;
+  background-color: #0d0a1c;
+  border: solid 1px #4F4789;
 }
 
 [contenteditable=true]:empty:before {
@@ -902,7 +904,8 @@ pre {
   color: white !important;
   margin-top: 20px;
   overflow: scroll;
-  margin-bottom: 35%;
+  width: 100%;
+  height: 70%;
 }
 
 #aiMessage {
@@ -918,16 +921,17 @@ pre {
 
 .messageGroup {
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
 
 }
 
 #userMessage, #aiMessage {
   min-width: 10rem;
   max-width: 75%;
-  background-color: #161b22;
-  border: solid 1px #30363D;
+  background-color: #0d0a1c;
+  border: solid 1px #4F4789;
   border-radius: 5px;
   padding: 8px;
   margin-bottom: 8px;
+  flex-direction: column;
 }

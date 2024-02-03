@@ -1,5 +1,3 @@
-AOS.init();
-
 export let enableTTS = false;
 
 // Marked
@@ -7,6 +5,13 @@ window.onload = function(){
   const chat_message = document.querySelector("#message");
   chat_message.innerHTML = marked.parse(chat_message.textContent);
 
+  let historyMessageGroup = document.createElement("div");
+  let historyElement = document.querySelector("#history");
+
+  historyMessageGroup.id = 'messageIndex0';
+  historyMessageGroup.className = 'messageGroup';
+
+  historyElement.appendChild(historyMessageGroup);
 }
 
 // Get the hash value without the # character
