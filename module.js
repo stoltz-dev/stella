@@ -144,14 +144,14 @@ async function run(rawInput) {
         let historyElement = document.querySelector("#history");
         let userMessageElement = document.createElement("div");
         let historyMessageGroup = document.createElement("div");
-        let lastMessageElement = document.createElement("div")
 
         userMessageElement.innerHTML += marked.parse(rawInput);
 
         userMessageElement.id = "userMessage";
         gen.id = "aiMessage";
         historyMessageGroup.id = 'messageIndex' + messageIndex;
-
+      userMessageElement.setAttribute("data-aos", "fade-up");
+      userMessageElement.setAttribute("data-aos-easing", "ease-in-out");
         historyMessageGroup.className = 'messageGroup';
 
         try{
@@ -269,10 +269,13 @@ document.addEventListener("keydown", function (event) {
       window.scrollTo(window.innerWidth, window.innerHeight);
       generating = true;
         const messageElement = document.querySelector("#messageIndex" + messageIndex + ", #aiMessage");
+      const historyElement = document.querySelector("#history");
         lastMessage = messageElement.innerHTML;
         let lastMessageElement = document.createElement("div");
         lastMessageElement.id = "lastMessage";
-        document.querySelector("#history").appendChild(lastMessageElement);
+      lastMessageElement.setAttribute("data-aos", "fade-up");
+      lastMessageElement.setAttribute("data-aos-easing", "ease-in-out");
+        historyElement.appendChild(lastMessageElement);
         lastMessageElement.appendChild(document.querySelector("#messageIndex" + messageIndex));
         messageElement.style.animation = "fadeOut 0.5s ease-in-out forwards";
         var inputValue = inputElement.innerText.trim();
