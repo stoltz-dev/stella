@@ -276,7 +276,7 @@ document.addEventListener("keydown", function (event) {
       lastMessageElement.setAttribute("data-aos", "fade-up");
       lastMessageElement.setAttribute("data-aos-easing", "ease-in-out");
         historyElement.appendChild(lastMessageElement);
-        lastMessageElement.appendChild(document.querySelector("#messageIndex" + messageIndex));
+        lastMessageElement.appendChild(messageElement);
         messageElement.style.animation = "fadeOut 0.5s ease-in-out forwards";
         var inputValue = inputElement.innerText.trim();
         console.log(inputValue);
