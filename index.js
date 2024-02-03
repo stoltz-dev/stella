@@ -1,3 +1,5 @@
+AOS.init();
+
 export let enableTTS = false;
 
 // Marked
