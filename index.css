@@ -5,11 +5,10 @@
     height: 10px;
     transition: all 1s ease 0s;
 }
-injected stylesheet
+
 ::-webkit-scrollbar-corner {
     background: none;
 }
-injected stylesheet
 ::-webkit-scrollbar-thumb {
     background-color: rgba(127, 127, 127, 0.6);
     background-clip: padding-box;
@@ -20,7 +19,7 @@ injected stylesheet
     border-radius: 5px;
     transition: all 1s ease 0s;
 }
-injected stylesheet
+
 ::-webkit-scrollbar-track {
     background-color: transparent;
 }
@@ -74,7 +73,7 @@ body {
     align-items: center;
     justify-content: center;
     z-index: 10;
-    overflow: auto;
+    overflow: hidden;
   }
   
   .input-container {
@@ -927,7 +926,7 @@ pre {
   flex-direction: column;
   color: white !important;
   margin-top: 20px;
-  overflow: scroll;
+  overflow-y: scroll;
   width: 100%;
   height: 70%;
 }
