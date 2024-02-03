@@ -151,7 +151,7 @@ async function run(rawInput) {
       
       
         historyMessageGroup.appendChild(gen);
-        fadeInOut(gen, "fadeIn", 'flex');
+
         
 
         // check if gen has any pre elements
@@ -205,6 +205,29 @@ async function run(rawInput) {
         } else {
           loadingCircle.style.animation = "reverseColor 1s linear forwards, reverseGlow 1s linear forwards, blink 1s infinite linear";
         }
+
+        // Extract the email content using a regular expression
+        const matchResult = gen.innerText.match(/sendEmail\("([^"]+)"\)/i);
+
+        // Check if there is a match
+        if (matchResult) {
+          // Extract the email content from the matched result
+          const emailContent = matchResult[1];
+
+          // Replace any occurrences of '\n' with actual line breaks
+          const formattedEmailContent = emailContent.replace(/\\n/g, '\n');
+          
+          // Call the sendEmail function with the formatted content
+          sendEmail(formattedEmailContent);
+        }
+
+
+
+        setTimeout(() => {
+          fadeInOut(gen, "fadeIn", 'flex');
+        }, 500);
+
+        messageIndex++;
 
 
       } else {
@@ -308,4 +331,28 @@ function fadeInOut(DOMElement, fadeType, displayType) {
     DOMElement.style.display = `${displayType}`;
     DOMElement.style.animation = 'fadeIn 0.5s ease-in-out forwards';
   }
+}
+
+function sendEmail(emailMessage){
+  var data = {
+      service_id: 'stella_email',
+      template_id: 'stella_template',
+      user_id: 'yfMumZ6mND0C_MP2k',
+      template_params: {
+          'username': 'Stella',
+          'g-recaptcha-response': '03AHJ_ASjnLA214KSNKFJAK12sfKASfehbmfd...',
+        'message': emailMessage
+      
+      }
+  };
+  
+  $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
+      type: 'POST',
+      data: JSON.stringify(data),
+      contentType: 'application/json'
+  }).done(function() {
+      infoWarning('Your mail is sent!');
+  }).fail(function(error) {
+      errorWarning('Oops... ', JSON.stringify(error));
+  });
 }
