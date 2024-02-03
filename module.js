@@ -309,30 +309,3 @@ function fadeInOut(DOMElement, fadeType, displayType) {
     DOMElement.style.animation = 'fadeIn 0.5s ease-in-out forwards';
   }
 }
-
-function openHistory(enable) {
-  let historyElement = document.querySelector("#history");
-  try {
-    if (enable) {
-      let notLastMessage = document.querySelector("#messageIndex" + (messageIndex - 1));
-      console.log(notLastMessage);
-
-      notLastMessage.style.animation = 'fadeIn 0.5s ease-in-out forwards';
-    } else {
-      historyMessages.style.animation = 'fadeOut 0.5s ease-in-out forwards'
-    }
-  } catch { }
-
-
-}
-
-
-window.onwheel = function (event) {
-  if (document.documentElement.scrollTop === 0 && event.deltaY < 0) {
-    openHistory(true);
-    console.log("Scroll Up!");
-  } else {
-    openHistory(false);
-    console.log("Scroll Down!");
-  }
-};
