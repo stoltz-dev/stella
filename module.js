@@ -207,13 +207,10 @@ async function run(rawInput) {
         }
 
         // Extract the email content using a regular expression
-        const matchResult = gen.textContent.match(/sendEmail\("([^"]+)"\)/g);
+        const emailContent = gen.textContent.match(/sendEmail\("([^"]+)"\)/g);
 
         // Check if there is a match
-        if (matchResult) {
-          // Extract the email content from the matched result
-          const emailContent = matchResult[1];
-
+        if (emailContent) {
           // Replace any occurrences of '\n' with actual line breaks
           const formattedEmailContent = emailContent.replace(/\\n/g, '\n');
           
