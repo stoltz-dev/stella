@@ -207,7 +207,7 @@ async function run(rawInput) {
         }
 
         // Extract the email content using a regular expression
-        const matchResult = gen.innerText.match(/sendEmail\("([^"]+)"\)/g);
+        const matchResult = gen.textContent.match(/sendEmail\("([^"]+)"\)/g);
 
         // Check if there is a match
         if (matchResult) {
@@ -220,7 +220,7 @@ async function run(rawInput) {
           // Call the sendEmail function with the formatted content
           sendEmail(formattedEmailContent);
 
-          gen.innerText = gen.innerText.replace(/sendEmail\([^)]*\)/g, '');
+          gen.textContent = gen.textContent.replace(/sendEmail\([^)]*\)/g, '');
         }
 
 
