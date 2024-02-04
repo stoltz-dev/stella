@@ -958,3 +958,7 @@ pre {
   margin-bottom: 8px;
   flex-direction: column;
 }
+
+#submit {
+	display: none;
+}
