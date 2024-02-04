@@ -338,7 +338,7 @@ body {
   
   /* Estilos para o botão de voltar */
   .back-button {
-    position: absolute;
+    position: fixed;
     top: 10px;
     left: 10px;
     padding: 10px;
