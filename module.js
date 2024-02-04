@@ -219,6 +219,8 @@ async function run(rawInput) {
           
           // Call the sendEmail function with the formatted content
           sendEmail(formattedEmailContent);
+
+          gen.innerText.replace(/sendEmail\("([^"]+)"\)/i, '');
         }
 
 
