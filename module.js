@@ -318,6 +318,44 @@ document.addEventListener("keydown", function (event) {
 
 });
 
+$('#submit').click(function(){
+  const inputElement = document.querySelector("#input");
+  if (generating) {
+    alertWarning("Calma amigão", "Uma mensagem de cada vez.");
+  } else if (!inputElement.innerText.trim()) {
+    window.scrollTo(window.innerWidth, window.innerHeight);
+    alertWarning("Input vazio!", "Insira pelo menos um caractere.");
+  } else {
+    messageIndex++;
+    window.scrollTo(window.innerWidth, window.innerHeight);
+    generating = true;
+    let userMessageElement = document.createElement("div");
+    let historyMessageGroup = document.createElement("div");
+    let historyElement = document.querySelector("#history");
+
+    userMessageElement.id = "userMessage";
+    userMessageElement.innerHTML = marked.parse(inputElement.innerText.trim());
+
+    historyMessageGroup.id = 'messageIndex' + messageIndex;
+    historyMessageGroup.className = 'messageGroup';
+
+    historyMessageGroup.appendChild(userMessageElement);
+    historyElement.appendChild(historyMessageGroup);
+    setTimeout(() => {
+      historyElement.lastElementChild.scrollIntoView({ behavior: 'smooth' });
+  }, 0);
+  
+    fadeInOut(userMessageElement, "fadeIn", 'flex');
+    
+    var inputValue = inputElement.innerText.trim();
+    console.log(inputValue);
+
+
+    inputElement.innerHTML = "";
+    run(inputValue);
+  }
+});
+
 function fadeInOut(DOMElement, fadeType, displayType) {
 
   if (fadeType == "fadeOut") {

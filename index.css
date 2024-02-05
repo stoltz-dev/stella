@@ -81,8 +81,9 @@ body {
     justify-content: center;
     margin-top: 20px;
     position: fixed;
-    bottom: 0px;
-  }
+    bottom: 2.3rem;
+    flex-direction: row-reverse;
+}
   
   #input {
     border: 2px solid rgb(242, 242, 242);
@@ -90,14 +91,13 @@ body {
     color: rgb(242, 242, 242) !important;
     -webkit-animation: inputVisibilityB 0.8s infinite alternate;
     animation: inputVisibilityB 0.8s infinite alternate;
-    background: transparent;
+    background: rgba(0, 0, 0, 0.263);
     bottom: 32px;
     font-weight: 320;
     min-height: 32px;
     outline: none;
     padding-inline: 8px;
     padding-top: 6px;
-    position: absolute;
     transition: border-color 0.1s, color 0.1s, text-shadow 0.1s,
       -webkit-transform 0.3s;
     transition: border-color 0.1s, color 0.1s, text-shadow 0.1s, transform 0.3s;
@@ -110,6 +110,7 @@ body {
     z-index: 20;
     resize: none;
     padding-bottom: 10px;
+    backdrop-filter: blur(2px);
   }
 
   #input span{
@@ -347,6 +348,7 @@ body {
     cursor: pointer;
     display: flex;
     align-items: center;
+    z-index: 20;
   }
   
   .back-icon {
@@ -371,7 +373,7 @@ body {
 
 @media (max-width: 800px) {
   #input:focus{
-      width: 300px;
+      width: 240px;
   }
 
   #settingsModal {
@@ -383,7 +385,7 @@ body {
   }
 
   .chat-container {
-		max-width: 80%;
+		width: 90%;
 	}
 }
 
@@ -922,7 +924,6 @@ pre {
 }
 
 #history {
-  z-index: 20;
   flex-direction: column;
   color: white !important;
   margin-top: 20px;
@@ -959,5 +960,16 @@ pre {
 }
 
 #submit {
-	display: none;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+#submit:hover{
+  transform: scale(1.1);
+}
+
+#submit svg {
+  transition: all 0.2s ease-in-out;
+  width: auto;
+  height: 100%;
 }

@@ -76,6 +76,8 @@ $('.ttsCheckbox').click(function(){
   }
 });
 
+
+
 $("#confirmPassword").bind("click", function() {
   var passwordConfirm = confirmPassword();
   if(passwordConfirm == true){
