@@ -256,9 +256,10 @@ $('#clearHistory').bind('click', function () {
     let messageElement = document.createElement('div');
     messageElement.id = 'aiMessage';
     historyElement.innerHTML = '';
-    messageElement.innerHTML = "<p>Olá, eu sou Stella.</p> <p>Como posso lhe ajudar hoje?</p>";
+    messageElement.innerHTML = "<p>Olá, eu sou Stella. Como posso ajudar?</p>";
     let historyMessageGroup = document.createElement("div");
     historyMessageGroup.id = 'messageIndex0';
+    historyMessageGroup.setAttribute("class", "messageGroup");
     historyMessageGroup.appendChild(messageElement);
     historyElement.appendChild(historyMessageGroup);    
     historyElement.style.animation = "fadeIn 0.5s ease-in-out forwards";
