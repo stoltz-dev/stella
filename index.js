@@ -224,6 +224,7 @@ export function tts(text, enable, password) {
     const textToSpeech = async (inputText) => {
       const response = await fetch('https://stella-backend.vercel.app/text-to-speech', {
         method: 'POST',
+        mode: "no-cors",
         headers: {
           'Content-Type': 'application/json',
           'Accept': 'audio/mpeg',
