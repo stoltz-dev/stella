@@ -24,6 +24,11 @@
     background-color: transparent;
 }
 
+body *:not(.background) {
+  animation: fadeIn 0.5s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
 body {
     font-family: "Exo 2", sans-serif !important;
     background: #070815 !important;
@@ -56,6 +61,7 @@ body {
     left: 0;
     right: 0;
     bottom: 0;
+    z-index: -1;
   }
   
   .chat-container {
@@ -970,6 +976,7 @@ pre {
 
 #submit svg {
   transition: all 0.2s ease-in-out;
+  max-width: 3rem;
   width: auto;
   height: 100%;
 }
