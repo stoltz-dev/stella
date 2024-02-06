@@ -219,7 +219,7 @@ function setVolume(audioElement){
 
 const voiceId = 'CaTHjV84MxieZtIYEDMt';
 
-export function tts(text, enable) {
+export function tts(text, enable, password) {
   if (enable){
     const textToSpeech = async (inputText) => {
       const response = await fetch('https://stella-backend.vercel.app/text-to-speech', {
@@ -228,7 +228,7 @@ export function tts(text, enable) {
           'Content-Type': 'application/json',
           'Accept': 'audio/mpeg',
         },
-        body: JSON.stringify({ text: inputText, voice_id: voiceId })
+        body: JSON.stringify({ text: inputText, voice_id: voiceId, password: password })
       });
     
       if (!response.ok) {
