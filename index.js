@@ -216,29 +216,17 @@ function setVolume(audioElement){
 });
 }
 
-const XI_API_KEY = 'f289db5d52aee96edb192f8afc841cfd';
-const VOICE_ID = 'CaTHjV84MxieZtIYEDMt';
+
+const voiceId = 'CaTHjV84MxieZtIYEDMt';
 
 export function tts(text, enable) {
   if (enable){
     const textToSpeech = async (inputText) => {
-      const response = await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${VOICE_ID}?optimize_streaming_latency=2`, {
-        method: 'POST',
+      const response = await fetch(`https://stella-frontend.vercel.app/tts/${inputText}?voiceId=${voiceId}`, {
+        method: 'GET',
         headers: {
           'Accept': 'audio/mpeg',
-          'Content-Type': 'application/json',
-          'xi-api-key': XI_API_KEY
         },
-        body: JSON.stringify({      
-          "model_id": "eleven_multilingual_v2",
-          "text": inputText,
-          "voice_settings": {
-            "similarity_boost": 0.75,
-            "stability": 0.3,
-            "style": 0.0,
-            "use_speaker_boost": true
-          } 
-        })
       });
     
       if (!response.ok) {
@@ -264,6 +252,7 @@ export function tts(text, enable) {
     return generateAudio(text);
   }
 }
+
 
 
 
