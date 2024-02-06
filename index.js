@@ -222,7 +222,7 @@ const voiceId = 'CaTHjV84MxieZtIYEDMt';
 export function tts(text, enable) {
   if (enable){
     const textToSpeech = async (inputText) => {
-      const response = await fetch(`https://stella-backend.vercel.app/tts/${inputText}?voiceId=${voiceId}`, {
+      const response = await fetch(`https://stella-backend.vercel.app/api/${inputText}?voiceId=${voiceId}`, {
         method: 'GET',
         headers: {
           'Accept': 'audio/mpeg',
