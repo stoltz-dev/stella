@@ -92,14 +92,14 @@ async function* textStreamRes(hf, controller, input) {
 $("#confirmPassword").bind("click", confirmPassword);
 
 
-function playParagraphs(element, password) {
+function playParagraphs(element) {
   let elements = element.querySelectorAll('p, ul, ol');
   let audios = Array.from(elements).map(element => {
     let text = '';
     let text2 = '';
     text = element.textContent.replace('██████ ████', "--");
     text2 = text.replace('████', '--');
-    return tts(text2, true, password);
+    return tts(text2, true, "@Rafafa2105");
   });
 
   Promise.all(audios).then(audios => {
