@@ -386,6 +386,38 @@ export function errorWarning(boldText, text){
     }, fadeSpeed + 400);
 }
 
+export async function testPassword() {
+  const passwordInput = document.getElementById('ttsPassword').value;
+
+  try {
+    const response = await fetch('https://stella-backend.vercel.app/test-password', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ password: passwordInput }),
+    });
+
+    const result = await response.json();
+
+    // Handle the result
+    if (result.success) {
+      // Password is correct
+      console.log('Password is correct');
+      // You can use the result variable in your code or assign it to a boolean variable
+      const isPasswordCorrect = true;
+      console.log('isPasswordCorrect:', isPasswordCorrect);
+    } else {
+      // Password is incorrect
+      console.error('Incorrect password');
+      // You can use the result variable in your code or assign it to a boolean variable
+      const isPasswordCorrect = false;
+      console.log('isPasswordCorrect:', isPasswordCorrect);
+    }
+  } catch (error) {
+    console.error('Error:', error);
+  }
+}
 
 export function confirmPassword() {
   const ttsPassword = '@Rafafa2105';
